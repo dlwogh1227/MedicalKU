@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- 화면3 -->
+    <div class="disease item">
+        <div class="disease-result">
+            <div class="disease-name"><span th:text="${diseaseName}"></span></div>
+            <div class="disease-probability"><span th:text="${probability} + '%'"></span><span class="material-symbols-outlined">vital_signs</span>
+            </div>
+        </div>
+        <div class="disease-content" th:text="${diseaseContent}">
+           
+        </div>
+    </div>
+    <div class="treatment item">
+        <div class="treatment-title">
+            <span>치료법</span><span class="material-symbols-outlined">health_and_safety</span>
+        </div>
+        <div class="treatment-content" th:text="${treatmentMethod}"></div>
+    </div>
+</body>
+</html>

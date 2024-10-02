@@ -1,0 +1,138 @@
+    /*레이아웃*/
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        /* border: 1px solid red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: "Inter", sans-serif !important;
+    }
+
+    .content {
+        /* border: 1px solid red; */
+        width: 500px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        position: relative;
+    }
+
+    .item {
+        /* border: 1px solid purple; */
+        width: 100%;
+        margin-bottom: 3%;
+    }
+    /* 버튼 */
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1%;
+        height: 80px;
+        background-color: #f2f6fc;
+        border-radius: 20px;
+    }
+    .button:hover {
+        cursor: pointer;
+    }
+    .icon.material-symbols-outlined {
+        font-size: 2.8rem;
+        /* color: #A3CCFB; */
+        color: #5A77A4;
+    }
+    .btn-text {
+        color: #5A77A4;
+        font-size: 1.15rem;
+        font-weight: 600;
+    }
+
+    /* 타이틀 */
+    .title {
+        margin-bottom: 10%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .title span:nth-child(1) {
+        color: #737373;
+        font-size: 1.75rem;
+        text-shadow: 1px 1px 3px rgb(112, 112, 112);
+        margin-left: 1%;
+    }
+
+    .title span:nth-child(2) {
+        color: #737373;
+        font-size: 1.3rem;
+        margin-top: 2%;
+        margin-left: 1%;
+    }
+
+    .title span:nth-child(2):hover {
+        cursor: pointer;
+    }
+    /*도움말*/
+    .info  {
+        /* border: 1px solid rgb(146, 146, 146);  */
+        border-radius: 20px;
+        box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2);
+        width: 290px;
+        height: 200px;
+        /* opacity: 70%; */
+        padding: 3%;
+
+        position: absolute;
+        left: 29%;
+        top: 3%;
+        z-index: 10;
+        background-color: rgb(255, 255, 255);
+    }
+    .info-title {
+        font-size: 1.2rem;
+        margin-bottom: 5%;
+        /* color: #13204B; */
+    }
+    .info-content {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    .close-btn.material-symbols-outlined {
+        font-size: 1.2rem;
+        position: absolute;
+        right: 2%;
+        top: 4%;
+    }
+    .close-btn {
+        cursor: pointer;
+    }
+    /* 홈버튼 */
+    .back-home {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin-bottom: 1%;
+        margin-right: 3%;
+        /* border: 1px solid red; */
+    }
+
+    .back-home span:hover {
+        cursor: pointer;
+    }
+
+    .back-home span:nth-child(1) {
+        font-size: 1.5rem;
+        padding-right: 1%;
+        color: #ACD0FF;
+    }
+
+    .back-home span:nth-child(2) {
+        margin-right: 2%;
+        margin-top: 1%;
+        font-size: 1rem;
+        color: #ACD0FF;
+    }

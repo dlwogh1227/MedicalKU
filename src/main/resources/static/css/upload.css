@@ -1,0 +1,58 @@
+.pre-img-container {
+    /* border: 1px solid red; */
+    border-radius: 30px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid #C5C0C0;
+    /* box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.back-img {
+    background-image: linear-gradient(to right, rgb(206, 206, 206) 1px, transparent 1px),
+    linear-gradient(to bottom,  rgb(206, 206, 206) 1px, transparent 1px);
+    background-size: 25px 25px; /* 격자의 크기 설정 */
+    background-position: -1px -1px;
+}
+
+.pre-img, .cropedImg {
+    /* width: 100%;
+    height: 100%; */
+    object-fit: contain;
+    box-sizing: content-box;
+    border-radius: 20px;   
+} 
+.cropedImg {
+    width: 100%;
+    height: 100%;
+}
+/* .pre-img-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 3px px rgba(122, 122, 122, 0.3);
+    border-radius: 30px;
+    pointer-events: none; 
+    z-index: 2;  
+}  */
+.progress-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.progress-container > div {
+    flex-basis: 31%;
+    gap: 3.5%;
+}
+.progress-container span:nth-child(2) {
+    font-size: 1.1rem;
+}
+
+.cropper-dashed {
+    border: 0 !important; 
+}

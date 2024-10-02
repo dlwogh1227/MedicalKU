@@ -1,0 +1,19 @@
+.load{
+ 
+/*  border: 1px solid red; */
+ width: 90%;
+} 
+
+.teal{
+    background-color: #5A77A4    !important;
+}
+.progress-name {
+    width: 100%;
+    text-align: center;
+    margin-top: 2%;
+}
+.progress-name span {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #13204B;
+}

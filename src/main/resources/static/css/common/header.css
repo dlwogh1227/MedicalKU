@@ -1,0 +1,13 @@
+.header {
+    width: 100%;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+.header>span {
+    color: #ACD0FF;
+    font-size: 3.75rem;
+    margin-left: 20%;
+}
+.header>span:hover {
+    cursor: pointer;
+}
