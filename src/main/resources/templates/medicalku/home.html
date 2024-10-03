@@ -29,7 +29,7 @@
 </head>
 <body>
     <!-- 헤더 -->
-    <header th:replace="~{common/header :: header}"></header>
+    <header th:replace="~{medicalku/header :: header}"></header>
     <main class="content">
         <div class="title item"><span>피부검사</span><span class="material-symbols-outlined info-btn">info</span></div>
         <div class="info" style="display: none;"><div class="info-title">MedicalKU 피부진단이란?</div><div class="info-content">(내용)</div><span class="material-symbols-outlined close-btn">
@@ -41,7 +41,7 @@
 
         <div th:replace="~{upload :: upload}"></div>
 
-        <div th:replace="~{common/loading :: loading}"></div>
+        <div th:replace="~{medicalku/loading :: loading}"></div>
     </main>
     <script type="module" src="/js/home.js"></script>
 </body>
