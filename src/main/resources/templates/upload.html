@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <th:block th:fragment="upload">
+        <div class="pre-img-container back-img item" style="display: none;"><img class="pre-img" src="" alt=""><img src="" alt="" class="cropedImg" style="display: none;"></div>
+        <div class="progress-container item" style="display: none;">
+            <div class="reUpload button">
+                <span class="material-symbols-outlined icon">refresh</span><span class="btn-text">재업로드</span>
+            </div>
+            <div class="crop button" id="crop">
+                <span class="material-symbols-outlined icon">crop</span><span class="btn-text">크롭</span>
+            </div>
+            <div class="next button">
+                <span class="material-symbols-outlined icon">stethoscope</span><span class="btn-text">검진</span>
+            </div>
+        </div>
+        <input type="file" name="upfile" class="inputFile" style="display: none;" required>
+    </th:block>
+</body>
+</html>

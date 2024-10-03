@@ -1,0 +1,43 @@
+@media (max-width: 768px) {
+    /* 레이아웃 */
+    html {
+        /* font-size: 10.56px; */
+        font-size: 12px;
+    }
+    .header {
+        text-align: center;
+    }
+    .header>span {
+        margin-left: 0%;
+    }
+    .content {
+        /* border: 1px solid red; */
+        width: 330px;
+    }
+    /* 화면1 */
+    .title span:nth-child(2) {
+        font-size: 1.5rem;
+    }
+    .help {
+        height: 330px;
+    }
+    .info {
+        width: 191.4px;
+        height: 132px;
+    }
+    .button {
+        height: 52.8px;
+    }	
+    /* 화면2 */
+    .pre-img-container {
+        height: 330px;
+        background-size: 16.5px 16.5px;
+    }
+    /* 화면3 */
+    .disease {
+        min-height: 198px;
+    }
+    .treatment {
+        min-height: 198px;
+    }
+}

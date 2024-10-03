@@ -1,0 +1,25 @@
+.fail{
+    padding-left: 2%;
+}
+.fail-header {
+    width: 100%;
+    color: #254472;
+    font-size: 2rem;
+    margin-top: 2%;
+}
+.fail-sub-header {
+    width: 100%;
+    color: #696969;
+    font-size: 1.3rem;
+    margin-bottom: 5%;
+}
+.photo-instructions {
+    color: #13204B;
+    width: 100%;
+    font-size: 1.15rem;
+    padding-left: 5%;
+}
+.photo-instructions li {
+    margin-bottom: 1%;
+
+}
