@@ -1,14 +1,21 @@
+/* 데스크탑, 노트북, 태블릿 가로(1366) */
+
+/* 태블릿 L 세로 가로, 태블릿 가로 */
+@media (max-width: 1240px) {
+    .header {
+        text-align: center;
+    }
+    .header>span {
+        transform: translate(0px);
+    }
+}
+
+/* 모바일 세로 가로, 태블릿 세로 */
 @media (max-width: 768px) {
     /* 레이아웃 */
     html {
         /* font-size: 10.56px; */
         font-size: 12px;
-    }
-    .header {
-        text-align: center;
-    }
-    .header>span {
-        margin-left: 0%;
     }
     .content {
         /* border: 1px solid red; */

@@ -2,11 +2,13 @@
     width: 100%;
     margin-bottom: 50px;
     margin-top: 10px;
+    display: flex;
+    justify-content: center;
 }
 .header>span {
     color: #ACD0FF;
     font-size: 3.75rem;
-    margin-left: 20%;
+    transform: translate(-435px);
 }
 .header>span:hover {
     cursor: pointer;
