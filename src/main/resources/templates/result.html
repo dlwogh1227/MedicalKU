@@ -5,12 +5,13 @@
     <div class="disease item">
         <div class="disease-result">
             <div class="disease-name"><span th:text="${diseaseName}"></span></div>
-            <div class="disease-probability"><span th:text="${probability} + '%'"></span><span class="material-symbols-outlined">vital_signs</span>
+            <div class="disease-probability">
+                <span th:text="${probability}" class="probability"></span>
+                <span class="percent">%</span>
+                <span class="material-symbols-outlined">vital_signs</span>
             </div>
         </div>
-        <div class="disease-content" th:text="${diseaseContent}">
-           
-        </div>
+        <div class="disease-content" th:text="${diseaseContent}"></div>
     </div>
     <div class="treatment item">
         <div class="treatment-title">

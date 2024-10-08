@@ -12,7 +12,7 @@
 
 /* 모바일 세로 가로, 태블릿 세로 */
 @media (max-width: 768px) {
-    /* 레이아웃 */
+    /* base */
     html {
         /* font-size: 10.56px; */
         font-size: 12px;
@@ -21,23 +21,24 @@
         /* border: 1px solid red; */
         width: 330px;
     }
-    /* 화면1 */
-    .title span:nth-child(2) {
-        font-size: 1.5rem;
-    }
-    .help {
-        height: 330px;
-    }
-    .info {
-        width: 191.4px;
-        height: 132px;
-    }
     .button {
         height: 52.8px;
     }	
+    .title span:nth-child(2) { /* 도움말 기호 */
+        font-size: 1.5rem;
+    }
+    .info { /* 도움말 창 */
+        width: 191.4px;
+        top: 11.2px;
+    }
+    .info-title {
+        font-size: 12.67px;
+    }
+    .info-content {
+        font-size: 10.56px;
+    }
     /* 화면2 */
-    .pre-img-container {
-        height: 330px;
+    .back-img  {
         background-size: 16.5px 16.5px;
     }
     /* 화면3 */

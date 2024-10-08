@@ -1,7 +1,7 @@
 .pre-img-container {
     /* border: 1px solid red; */
     border-radius: 30px;
-    height: 500px;
+    aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
     border: 1px solid #C5C0C0;

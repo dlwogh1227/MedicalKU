@@ -51,15 +51,16 @@
     align-items: center;
     /* border: 1px solid blue; */
 }
-.disease-probability span:nth-child(1) {
-    margin-right: 3%;
+.probability, .percent {
     margin-top: 10%;
     font-size: 1.65rem;
-    /* border: 1px solid red; */
-
     color: #13204B;
 }
-.disease-probability span:nth-child(2) {
+.percent {
+    margin-right: 3%;
+}
+
+.disease-probability span:nth-child(3) {
     margin-right: 14%;
     margin-top: 10%;
     font-size: 2.8rem;

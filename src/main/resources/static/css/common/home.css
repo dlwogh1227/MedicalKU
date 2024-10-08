@@ -81,13 +81,14 @@
         border-radius: 20px;
         box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2);
         width: 290px;
-        height: 200px;
+        aspect-ratio: 1.45/1;
         /* opacity: 70%; */
         padding: 3%;
 
         position: absolute;
         left: 29%;
-        top: 3%;
+        /* top: 2.3%; */
+        top: 17px;
         z-index: 10;
         background-color: rgb(255, 255, 255);
     }

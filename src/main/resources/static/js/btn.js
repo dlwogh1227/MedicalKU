@@ -1,6 +1,6 @@
 function uiControls() {
     $(".back-home>span, header>span").on("click", function() {
-        window.location.href = '/medicalku'; 
+        window.location.href = '/medicalku/home'; 
     });
 
     $(".info-btn").on("click", function() {

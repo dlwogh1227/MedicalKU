@@ -6,9 +6,10 @@
 }
 /* 슬라이드 */
 .help {
-    height: 500px;
+    aspect-ratio: 1/1;
     border-radius: 30px;
 }
+
 .carousel-inner{
     width: 100%;
     height: 100%;

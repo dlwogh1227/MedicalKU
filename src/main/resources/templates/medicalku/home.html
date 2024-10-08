@@ -31,10 +31,15 @@
     <!-- 헤더 -->
     <header th:replace="~{medicalku/header :: header}"></header>
     <main class="content">
-        <div class="title item"><span>피부검사</span><span class="material-symbols-outlined info-btn">info</span></div>
-        <div class="info" style="display: none;"><div class="info-title">MedicalKU 피부진단이란?</div><div class="info-content">(내용)</div><span class="material-symbols-outlined close-btn">
-            cancel
-            </span></div>
+        <div class="title item">
+            <span>피부검사</span>
+            <span class="material-symbols-outlined info-btn">info</span>
+        </div>
+        <div class="info" style="display: none;">
+            <div class="info-title">MedicalKU 피부진단이란?</div>
+            <div class="info-content">(내용)</div>
+            <span class="material-symbols-outlined close-btn">cancel</span>
+        </div>
         <div class="back-home item" style="display: none;"><span class="material-symbols-outlined icon">reply</span><span class="btn-text">처음으로</span></div> 
 
         <div th:replace="~{pre-upload :: pre-upload}"></div>

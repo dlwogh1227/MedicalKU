@@ -9,26 +9,23 @@ function ajaxDiagnosis(formData) {
     $(".load").show();
     animateLoad(minimumTime);
     
-
     $.ajax({
         url: "/medicalku/diagnosis",
         type: "post",
         data: formData,
         processData: false, 
         contentType: false, 
-        success: function(result) {
+        success: function(response) {
             let responseTime = Date.now() - startTime;
             let interval = responseTime - minimumTime;
 
             /* console.log(responseTime, interval); */
 
             if(interval > 0) {
-                $(".load").hide();
-                $(".content").append(result);
+                showResponse(response);
             } else {
                 setTimeout(function() {
-                    $(".load").hide();
-                    $(".content").append(result);
+                    showResponse(response);
                 }, -interval);
             }
             /* csr */
@@ -84,6 +81,24 @@ function animateLoad(time) {
             let animationDuration = endTime - startTime;  
             console.log('애니메이션 시간: ' + animationDuration + ' ms');} */
     }); 
+}
+
+function roundStringValue(selector) {
+    let str = $(selector).text();
+    let roundVal = Math.round(parseFloat(str));
+
+    if (!isNaN(roundVal)) {
+        return roundVal;
+    } else {
+        console("부적절한 확률값");
+        return ""; 
+    }
+}
+
+function showResponse(response) {
+    $(".load").hide();
+    $(".content").append(response);
+    $(".probability").text(roundStringValue(".probability"));
 }
 
 export {submitImg};
