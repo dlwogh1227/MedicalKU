@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <body>
     <th:block th:fragment="pre-upload">
-        <div class="tip item">tip: 어둡지 않은 환경에서 촬영한 사진을 올려주세요</div>
-        <div id="carousel-help" class="carousel slide help item">
+        <!-- <div class="tip item ">tip: 어둡지 않은 환경에서 촬영한 사진을 올려주세요</div> -->
+        <div id="carousel-help" class="carousel slide help item" data-bs-wrap="false">
             <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel-help" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img th:src="@{/img/20240928065055-removebg-preview.png}" class="d-block" alt="...">
+                <div class="carousel-item active">
+                    <img th:src="@{/img/slider-1-1d065c59-2.svg}" class="d-block" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/slider-2-ab8f0d5d-2.svg}" class="d-block" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img th:src="@{/img/slider-3-c42624bb.svg}" class="d-block" alt="...">
+                </div>
             </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/20240928065100-removebg-preview.png}" class="d-block" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img th:src="@{/img/20240928065103-removebg-preview.png}" class="d-block" alt="...">
-            </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-help" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-help" data-bs-slide="prev"    >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
             </button>
             <button class="carousel-control-next" type="button" data-bs-target="#carousel-help" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <div class="upload-file button item"><span class="material-symbols-outlined icon">upload</span><span class="btn-text">파일 업로드</span></div>
+        <div class="upload-file button item">
+            <span class="material-symbols-outlined icon">upload</span><span class="btn-text">파일 업로드</span>
+        </div>
     </th:block>
 </body>
+
 </html>

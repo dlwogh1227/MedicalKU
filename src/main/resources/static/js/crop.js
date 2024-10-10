@@ -1,4 +1,4 @@
-import {enableBtn, disableBtn, changeBtn} from './btn.js'
+import {enableBtn, disableBtn, changeBtn} from './uiHandlers.js'
 
 let cropImg;
 let preImg;

@@ -1,4 +1,6 @@
-function uiControls() {
+import {setResponseUi} from './ajaxDiagnosis.js'
+
+function btnEvents() {
     $(".back-home>span, header>span").on("click", function() {
         window.location.href = '/medicalku/home'; 
     });
@@ -12,8 +14,7 @@ function uiControls() {
     });
 
     $(document).on("click", ".retry", function(){
-        $(".progress-container").show();
-        $(".pre-img-container").addClass("back-img");
+        setResponseUi(false);
         $(".fail, .retry").remove();
         $(".progress-bar").css("width", "0%");
     });
@@ -34,6 +35,6 @@ function enableBtn(selector) {
     $(selector).css("opacity", "1");
 }
 
-export {changeBtn, disableBtn, enableBtn, uiControls};
+export {changeBtn, disableBtn, enableBtn, btnEvents};
 
 

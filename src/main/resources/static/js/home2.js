@@ -5,14 +5,12 @@ $(function(){
     });
     /* 처음으로 */
     $(".back-home>span, header>span").on("click", function() {
-        /* ajaxHome(); */
         window.location.href = '/medicalku'; 
     });
 
     function onceFunction() {
         $(".back-home, .pre-img-container, .progress-container").show();
         $(".tip, .help, .upload-file").hide();
-        // 함수를 실행한 후에 함수를 무효화
         onceFunction = function() {
         };
     }
@@ -44,7 +42,6 @@ $(function(){
     let preImg;
     let croppedCanvas
     let cropped = false;
-    /* let status = true; */
 
     function changeBtn(icon, text, Selector, newClass) {
         $(Selector + ">span").eq(0).text(icon);

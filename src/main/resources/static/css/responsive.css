@@ -24,7 +24,7 @@
     .button {
         height: 52.8px;
     }	
-    .title span:nth-child(2) { /* 도움말 기호 */
+    .info-btn { /* 도움말 기호 */
         font-size: 1.5rem;
     }
     .info { /* 도움말 창 */

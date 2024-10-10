@@ -13,6 +13,8 @@
 <link rel="stylesheet" href="/css/responsive.css"> 
 <link rel="stylesheet" href="/css/common/load.css">
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
@@ -24,7 +26,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.js" integrity="sha512-JyCZjCOZoyeQZSd5+YEAcFgz2fowJ1F1hyJOXgtKu4llIa0KneLcidn5bwfutiehUTiOuK87A986BZJMko0eWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.2/cropper.min.css" integrity="sha512-UtLOu9C7NuThQhuXXrGwx9Jb/z9zPQJctuAgNUBK3Z6kkSYT9wJ+2+dh6klS+TDBCV9kNPBbAxbVD+vCcfGPaA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
 
 </head>
 <body>
@@ -32,15 +34,17 @@
     <header th:replace="~{medicalku/header :: header}"></header>
     <main class="content">
         <div class="title item">
-            <span>피부검사</span>
+            <span class="title-text">피부검사</span>
             <span class="material-symbols-outlined info-btn">info</span>
+            <div class="back-home" style="display: none;"><span class="material-symbols-outlined icon">reply</span><span class="btn-text">처음으로</span></div> 
         </div>
         <div class="info" style="display: none;">
             <div class="info-title">MedicalKU 피부진단이란?</div>
             <div class="info-content">(내용)</div>
             <span class="material-symbols-outlined close-btn">cancel</span>
         </div>
-        <div class="back-home item" style="display: none;"><span class="material-symbols-outlined icon">reply</span><span class="btn-text">처음으로</span></div> 
+        
+        <div class="tip">tip: 어둡지 않은 환경에서 촬영한 사진을 올려주세요</div>
 
         <div th:replace="~{pre-upload :: pre-upload}"></div>
 

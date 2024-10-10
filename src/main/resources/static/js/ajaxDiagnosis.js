@@ -3,10 +3,7 @@ import {cropped, croppedCanvas} from './crop.js'
 function ajaxDiagnosis(formData) {
     let minimumTime = 3000;
     let startTime = Date.now();
-    $(".progress-container").hide();
-    /* $(".pre-img").css("object-fit", "cover"); */
-    $(".pre-img-container").removeClass("back-img");
-    $(".load").show();
+    setResponseUi(true);
     animateLoad(minimumTime);
     
     $.ajax({
@@ -16,18 +13,11 @@ function ajaxDiagnosis(formData) {
         processData: false, 
         contentType: false, 
         success: function(response) {
-            let responseTime = Date.now() - startTime;
-            let interval = responseTime - minimumTime;
 
-            /* console.log(responseTime, interval); */
+            let adjustmentTime = setResponseTime(startTime, minimumTime);
 
-            if(interval > 0) {
-                showResponse(response);
-            } else {
-                setTimeout(function() {
-                    showResponse(response);
-                }, -interval);
-            }
+            setTimeout(function() {showResponse(response);}, adjustmentTime);
+
             /* csr */
             /*
             let str = "";
@@ -69,12 +59,12 @@ function submitImg() {
     });
 }
 
-function animateLoad(time) {
+function animateLoad(minimumTime) {
     /* let startTime = Date.now(); */ 
     // 로딩바
     $(".progress-bar").animate({
         width: "100%"
-    }, {duration: time - 1000,
+    }, {duration: minimumTime - 1000,
         easing: 'linear' ,
        /*  complete: function(){
             let endTime = Date.now(); 
@@ -90,8 +80,28 @@ function roundStringValue(selector) {
     if (!isNaN(roundVal)) {
         return roundVal;
     } else {
-        console("부적절한 확률값");
+        console.log("부적절한 확률값");
         return ""; 
+    }
+}
+
+function setResponseUi (isLoading) {
+    if(isLoading) {
+        $(".load").show();
+    }
+    $(".tip, .progress-container").toggle();
+    $(".pre-img-container").toggleClass("back-img");
+}
+
+function setResponseTime(startTime, minimumTime) {
+    let responseInterval = Date.now() - startTime;
+    let adjustmentTime = responseInterval - minimumTime;
+
+    /* console.log(responseInterval); */
+    if(adjustmentTime > 0) {
+        return 0;
+    } else {
+        return -adjustmentTime;
     }
 }
 
@@ -99,6 +109,7 @@ function showResponse(response) {
     $(".load").hide();
     $(".content").append(response);
     $(".probability").text(roundStringValue(".probability"));
+    /* console.log(Date.now()- t); */
 }
 
-export {submitImg};
+export {submitImg, setResponseUi};

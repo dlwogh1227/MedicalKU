@@ -1,5 +1,5 @@
 import {clearCropPreview, changeCroppedValue} from './crop.js';
-import {changeBtn} from './btn.js';
+import {changeBtn} from './uiHandlers.js';
 
 function fileUpload() {
     let lastSelectedFile;
@@ -49,8 +49,9 @@ function fileUpload() {
 }
 
 function changePage() {
+    $(".help, .upload-file").hide();
     $(".back-home, .pre-img-container, .progress-container").show();
-    $(".tip, .help, .upload-file").hide();
+    $(".tip").text("tip: 정확한 진단을 위해 첨부한 사진을 잘라보세요!");
     changePage = function() {
     };
 }
