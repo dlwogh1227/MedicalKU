@@ -1,7 +1,7 @@
 import {cropped, croppedCanvas} from './crop.js'
 
 function ajaxDiagnosis(formData) {
-    let minimumTime = 3000;
+    let minimumTime = 1500;
     let startTime = Date.now();
     setResponseUi(true);
     animateLoad(minimumTime);
@@ -64,7 +64,7 @@ function animateLoad(minimumTime) {
     // 로딩바
     $(".progress-bar").animate({
         width: "100%"
-    }, {duration: minimumTime - 1000,
+    }, {duration: minimumTime-500,
         easing: 'linear' ,
        /*  complete: function(){
             let endTime = Date.now(); 
