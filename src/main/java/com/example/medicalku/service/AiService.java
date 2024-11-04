@@ -1,19 +1,12 @@
-package com.example.medicalku.controller;
+package com.example.medicalku.service;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 
 import java.io.ByteArrayOutputStream;
 import java.net.URI;
@@ -21,55 +14,18 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
-
-@org.springframework.stereotype.Controller
-@RequestMapping("/medicalku")
+@Service
 @Log4j2
-@RequiredArgsConstructor
-public class Controller {
+public class AiService {
 
-    @GetMapping("/home")
-    public void home(){
+    @Value("${ai.server.url}")
+    private String url;
 
-    }
-
-    @PostMapping("/diagnosis")
-    public ResponseEntity<String> uploadImage(@RequestParam("upfile") MultipartFile imageFile, RedirectAttributes redirectAttributes){
-        if (imageFile.isEmpty()) {
-            return redirectTo("/fail");
-        }
-
-        String filename = imageFile.getOriginalFilename();
-        if (filename == null || !allowedFileExtension(filename)) {
-            return redirectTo("/fail");
-        }
-
-        // 파일 크기 확인
-        long maxFileSize = 5 * 1024 * 1024; // 5 MB
-        if (imageFile.getSize() > maxFileSize) {
-            return redirectTo("/fail");
-        }
-
-        // 파일 형식 확인
-        String contentType = imageFile.getContentType();
-        if (contentType == null || !contentType.startsWith("image/")) {
-            return redirectTo("/fail");
-        }
-
-        // 메타데이터 로그
-        System.out.println("File Name: " + filename);
-        System.out.println("File Size: " + imageFile.getSize());
-        System.out.println("Content Type: " + contentType);
-
+    public String[][] reqToAi(MultipartFile imageFile){
 
         HttpClient client = HttpClient.newHttpClient();
-
-        String url = "https://ad5e-35-196-81-74.ngrok-free.app/upload";
-
         String boundary = "----WebKitFormBoundary22OES6uBkBVZusVD";
-
         try {
             byte[] multipartBody = buildMultipartBody(imageFile, boundary); // 바이트 배열로 받기
 
@@ -82,8 +38,8 @@ public class Controller {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
             // 응답 출력
-            System.out.println("응답 코드: " + response.statusCode());
-            System.out.println("응답 바디: " + response.body());
+            log.info("응답 코드: {}", response.statusCode());
+            log.info("응답 바디: {}", response.body());
 
             if(response.statusCode() == 200){
                 Gson gson = new Gson();
@@ -92,34 +48,26 @@ public class Controller {
                 JsonArray predictionsArray = jsonObject.getAsJsonArray("top3_predictions");
 
                 JsonArray prediction0 = predictionsArray.get(0).getAsJsonArray();
+                JsonArray prediction1 = predictionsArray.get(1).getAsJsonArray();
+                JsonArray prediction2 = predictionsArray.get(2).getAsJsonArray();
 
-                redirectAttributes.addFlashAttribute("diseaseName", prediction0.get(0).getAsString());
-                redirectAttributes.addFlashAttribute("probability", prediction0.get(1).getAsString());
+                String[][] result = {
+                        {prediction0.get(0).getAsString(), prediction0.get(1).getAsString()},
+                        {prediction1.get(0).getAsString(), prediction1.get(1).getAsString()},
+                        {prediction2.get(0).getAsString(), prediction2.get(1).getAsString()}
+                };
 
-
-                return redirectTo("/result");
+                return result;
             } else {
-                return redirectTo("/fail");
+                return null;
             }
 
         } catch (Exception e) {
-            return redirectTo("/fail");
+            return null;
         }
 
     }
 
-    public ResponseEntity<String> redirectTo(String url) {
-        return ResponseEntity
-                .status(HttpStatus.FOUND)
-                .location(URI.create(url))
-                .build();
-    }
-
-    private boolean allowedFileExtension(String filename) {
-        String[] allowedExtensions = { "jpg", "jpeg", "png", "gif" };
-        String extension = filename.substring(filename.lastIndexOf('.') + 1).toLowerCase();
-        return Arrays.asList(allowedExtensions).contains(extension);
-    }
 
     private byte[] buildMultipartBody(MultipartFile imageFile, String boundary) throws Exception {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -143,5 +91,4 @@ public class Controller {
 
         return outputStream.toByteArray(); // 결과를 바이트 배열로 반환
     }
-
 }
