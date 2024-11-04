@@ -24,10 +24,10 @@ function fileUpload() {
             let reader = new FileReader();
                 reader.readAsDataURL(this.files[0]);
                 reader.onload = function (e) {
-                    $(".pre-img").css("width", "");
-                    $(".pre-img").css("height", "");
+/*                  $(".pre-img").css("width", "");
+                    $(".pre-img").css("height", ""); */
                     $(".pre-img").attr("src", e.target.result);
-                    $(".pre-img").on('load', function() {
+/*                     $(".pre-img").on('load', function() {
                         let width = $(".pre-img").width();
                         let height = $(".pre-img").height();
                         if(width > height) {
@@ -35,7 +35,7 @@ function fileUpload() {
                         } else {
                             $(".pre-img").css("height", "100%");
                         }
-                    })
+                    }) */
             }
             changePage();
         } else { /* 파일을 제거할때 */

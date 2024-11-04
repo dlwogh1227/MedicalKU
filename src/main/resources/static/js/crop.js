@@ -9,11 +9,11 @@ function changeCroppedValue(boolean) {
     cropped = boolean;
 }
 
-function clearCrop() {
-    if(cropImg) {
+function clearCrop(cropObj) {
+    if(cropObj) {
         /* alert("크롭객체비움"); */
-        cropImg.destroy();
-        cropImg = null;
+        cropObj.destroy();
+        cropObj = null;
     }
 }
 
@@ -29,9 +29,8 @@ function setCropInterface () {
     /* 크롭 불러오기 */
     $(document).on("click", ".crop", function() {
         preImg = $(".pre-img")[0];
-        if (cropImg) {
-            cropImg.destroy(); // 이전 인스턴스를 제거
-        }
+        clearCrop(cropImg);
+        
         cropImg = new Cropper(preImg, {
             aspectRatio: 1,
             viewMode: 3,

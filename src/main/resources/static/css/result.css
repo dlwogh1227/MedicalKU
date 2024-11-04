@@ -1,18 +1,201 @@
-/* 진단 */
-.disease {
-    min-height: 300px;
+/* 레이아웃 */
+.result-container {
+    width: 1000px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    position: relative;
+    /* gap: 20px; */
+}
+.result-item {
+    width: 48%;
+    height: 480px;
+    border-radius: 30px;
+    margin-bottom: 2%;
+}
+.result-item-content {
+    height: 380px;
     background-color: #f2f6fc;
     display: flex;
     flex-direction: column;
-    border-radius: 30px;
 }
-.disease-result {
+/* 아이템 공통 */
+.result-item-content div {
+    /* border: 1px solid red; */
+}
+.disease-content-header {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5.5%;
+    padding-top: 1%;
+}
+.disease-content-name {
+    font-size: 2.3rem;
+    color: #13204B;
+}
+.disease-content-icon>span {
+    font-size: 2.8rem;
+    color: #ACD0FF;
+}
+
+.disease-content {
+    height: 70%;
+    font-size: 1.2rem;
+    line-height: 2.1rem;
+    font-weight: 500;
+    color: #13204B;
+    margin: 5%;
+    margin-top: 0%;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+.disease-content ul {
+    padding-left: 6%;
+}
+.disease-content li {
+    margin-bottom: 1%;
+}
+/* 질환 이미지 */
+.disease-img-container {
+    overflow: hidden;
+    position: relative;
+}
+.disease-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.disease-img-text {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+    color: aliceblue;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgb(112, 112, 112);
+}
+/* 첨부사진-결과 */
+.pre-img-container.result-preview-container {
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border:none;
+    border-radius:0;
+    position: relative;
+}
+
+.result-desease-container {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #C5C0C0; */
+    border-radius: 20px;
+    margin-bottom: 3.3%;
+    background-color: #f2f6fc;
+    padding: 2%;
+}
+.result-desease {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    border-bottom: 1px solid #9e9e9e;
+    padding: 2%;
+}
+.desease-name{
+    color: #13204B;
+    font-size: 1.9rem;
+    font-weight: 700;
+}
+.desease-rate-container {
+    display: flex;  
+    align-items: center; 
+}
+.desease-rate {
+    font-size: 1.5rem;
+}
+.percent {
+    font-size: 1.5rem;
+}
+.material-symbols-outlined.confidence-info {
+    font-size: 1rem;
+    color: #737373;
+    margin-right: 3px; /* 반응 */
+    padding-bottom: 9%;
+}
+.severity {
+    height: 50%;
+    padding: 2%;
+}  
+.severity-rate {
+   /*  display: inline-flex;
+    flex-direction: row;
+    align-items: center; */
+    color: #80d1a1;
+    font-weight: 600;
+}
+.material-symbols-outlined.severity-icon {
+    vertical-align: text-top;
+    color: #80d1a1;
+    font-size: 1.2rem;
+}
+.severity-content {
+    color: #13204B;
+    font-size: 1.05rem;
+}
+
+.result-info {
+    width: 100%;
+    /* margin-top: 10%; */
+}
+.result-info ul {
+    padding-left: 5%;
+    margin-bottom: 3%;
+}
+.result-info li {
+    /* color: #13204B; */
+    margin-bottom: 1.5%;
+}
+.specialist {
+    width: 95%;
+    border-radius: 30px;
+    padding: 0.6%;
+    /* background-color: #f5ecd1; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1%;
+    border: 1px solid #616161;
+}
+.result-preview {
+    width: 40% !important;
+    height: 40% !important;
+    object-fit: cover;
+    border-radius: 30px;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    /* box-shadow: 0px 0px 7px 3px rgba(26, 26, 26, 0.2); */
+}
+/* 로고 */
+.kuLogo {
+    width: 6%;
+}
+
+/* 진단 */
+/* .disease-result {
     width: 100%;
     display: flex;
     flex-direction: row;
     flex-basis: 30%;
-}
-.disease-content {
+} */
+/* .disease-content {
     width: 100%;
     flex-basis: 70%;
     
@@ -23,22 +206,20 @@
     font-weight: 500;
     
     color: #13204B;
-}
-.disease-name {
+} */
+/* .disease-name {
     flex-basis: 50%;
 
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    /* border: 1px solid blue; */
     
 }
 .disease-name span {
     margin-left: 12%;
     margin-top: 10%;
     font-size: 2.5rem;
-    /* border: 1px solid red; */
     color: #13204B;
 }
 .disease-probability {
@@ -48,7 +229,6 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    /* border: 1px solid blue; */
 }
 .probability, .percent {
     margin-top: 10%;
@@ -63,31 +243,20 @@
     margin-right: 14%;
     margin-top: 10%;
     font-size: 2.8rem;
-    /* border: 1px solid red; */
     color: #ACD0FF;
-}
+} */
 
 /* 치료 */
-.treatment {
-    min-height: 300px;
-    background-color: #f2f6fc;
-    display: flex;
-    flex-direction: column;
-    border-radius: 30px;
-}
-.treatment-title {
+/* .treatment-title {
     width: 100%;
-    flex-basis: 27.2%;
-    /* border: 1px solid red; */
-
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 
     color: #13204B;
-}
-.treatment-title span:nth-child(1) {
+} */
+/* .treatment-title span:nth-child(1) {
     margin-left: 6%;
     margin-top: 5%;
     font-size: 2.5rem;
@@ -101,8 +270,6 @@
 }
 .treatment-content {
     width: 100%;
-    flex-basis: 85%;
-    /* border: 1px solid red; */
 
     font-size: 1.2rem;
     line-height: 2rem;
@@ -111,4 +278,4 @@
     font-weight: 500;
 
     color: #13204B;
-}
+} */

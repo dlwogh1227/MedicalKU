@@ -2,22 +2,99 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
     <!-- 화면3 -->
-    <div class="disease item">
-        <div class="disease-result">
-            <div class="disease-name"><span th:text="${diseaseName}"></span></div>
-            <div class="disease-probability">
-                <span class="probability"></span>
-                <span class="percent"></span>
-                <span class="material-symbols-outlined">vital_signs</span>
+    <div class="result-desease-container">
+        <div class="result-desease">
+            <span class="desease-name" th:text="${diseaseName1}">멜라닌세포 모반</span>
+            <div class="desease-rate-container">
+                <span class="material-symbols-outlined confidence-info">info</span>
+                <span class="desease-rate" th:text="${probability1}">92</span><span class="percent">%</span>
             </div>
         </div>
-        <div class="disease-content" th:text="${diseaseContent}"></div>
-    </div>
-    <div class="treatment item">
-        <div class="treatment-title">
-            <span>치료법</span><span class="material-symbols-outlined">health_and_safety</span>
+        <div th:if="${disease2}">
+
+
         </div>
-        <div class="treatment-content" th:text="${treatmentMethod}"></div>
+        <div class="severity">
+            <span class="severity-rate">
+                <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>
+                Low-risk
+            </span>
+            <span class="severity-content">: 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>  
+        </div>
+    </div>
+
+    <div class="result-item disease-img-container">
+        <div class="disease-img-text" th:text="${diseaseName1}">건선</div>
+        <img class="disease-img" th:src="${imagePath1}" alt="">
+    </div>
+
+    <div class="result-item result-item-content disease-overview">
+        <div class="disease-content-header">
+            <div class="disease-content-name">개요 및 증상</div>
+            <div class="disease-content-icon"><span class="material-symbols-outlined">vital_signs</span></div>
+        </div>
+        <div class="disease-content" th:text="${description1}"></div>
+    </div>
+
+    <div class="result-item result-item-content disease-cause">
+        <div class="disease-content-header">
+            <div class="disease-content-name">원인</div>
+            <div class="disease-content-icon"><span class="material-symbols-outlined">search_insights</span></div>
+        </div>
+        <div class="disease-content">
+            건선 치료법으로는 먼저 스테로이드나 비타민 D 연고를 사용하는 국소 치료제가 있으며, 염증을 줄이는 데 도움을 줍니다. 두 번째로는 UVB 또는 UVA 광선을 이용한 광선 치료를 통해 피부 재생을 촉진합니다. 또한, 메토트렉세이트와 같은 경구 면역 억제제가 사용되며, 생물학적 제제는 면역 반응을 차단하여 증상을 완화시킵니다. 마지막으로, 스트레스 관리와 보습 같은 생활 관리를 통해 증상을 개선할 수 있습니다.
+        </div>
+    </div>
+
+    <div class="result-item result-item-content disease-diagnosis">
+        <div class="disease-content-header">
+            <div class="disease-content-name">진단</div>
+            <div class="disease-content-icon"><span class="material-symbols-outlined">diagnosis</span></div>
+        </div>
+        <div class="disease-content">
+          <ul>
+            <li>
+                원래 있던 점의 모양이나 색깔이 변하고, 크기가 커지는 경우
+            </li>
+            <li>
+                점의 경계가 뚜렷하지 않은 경우 경우 점의 경계가 뚜렷하지 않은 경우
+            </li>
+            <li>
+                점이 있는 부위가 가렵거나, 진물이 나거나, 헐고 피가 나는 경우
+            </li>
+            <li>
+                점의 경계가 뚜렷하지 않은 경우 점의 경계가 뚜렷하지 않은 경우 점의 경계가 뚜렷하지 
+            </li>
+          </ul>
+        </div>
+    </div>
+
+    <div class="result-item result-item-content treatment">
+        <div class="disease-content-header">
+            <div class="disease-content-name">치료법</div>
+            <div class="disease-content-icon"><span class="material-symbols-outlined">health_and_safety</span></div>
+        </div>
+        <div class="disease-content">
+            <ul>
+              <li>
+                  원래 있던 점의 모양이나 색깔이 변하고, 크기가 커지는 경우
+              </li>
+              <li>
+                  점의 경계가 뚜렷하지 않은 경우
+              </li>
+              <li>
+                  점이 있는 부위가 가렵거나, 진물이 나거나, 헐고 피가 나는 경우
+              </li>
+              <li>
+                  점의 경계가 뚜렷하지 않은 경우 점의 경계가 뚜렷하지 않은 경우 점의 경계가 뚜렷하지 
+              </li>
+            </ul>
+          </div>
+        <!-- <div class="disease-content" th:text="${treatmentMethod}"></div> -->
+    </div>
+
+    <div th:if="${disease2}"> <!-- 10% 이상의 질환이 1개 더 있으때 -->
+        <!-- 추가 질환 정보 -->
     </div>
 </body>
 </html>

@@ -11,7 +11,8 @@ function ajaxDiagnosis(formData) {
         type: "post",
         data: formData,
         processData: false, 
-        contentType: false, 
+        contentType: false,
+        timeout: 10000,  
         success: function(response) {
 
             let adjustmentTime = setResponseTime(startTime, minimumTime);
@@ -110,6 +111,20 @@ function showResponse(response) {
     $(".content").append(response);
     $(".probability").text(roundStringValue(".probability"));
     /* console.log(Date.now()- t); */
+    $(".content").toggleClass("result-container");
+    $(".pre-img-container").removeClass("item");
+    $(".pre-img-container").toggleClass("result-item");
+    $(".title-text").text("진단결과");
+    $(".title").css("margin-bottom", "5%");
+    addElement(".result-desease-container", ".cropedImg");
+    $(".result-info").toggle();
+    $(".pre-img, .cropedImg").toggleClass("result-preview");
+    $(".pre-img-container").toggleClass("result-preview-container");
+}
+
+function addElement(element, position) {
+    let newElement = $(element).detach();
+    $(position).after(newElement);
 }
 
 export {submitImg, setResponseUi};
