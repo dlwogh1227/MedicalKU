@@ -21,7 +21,7 @@ public class Disease {
     private String diseaseName;
 
     @Column(length = 50, nullable = false)
-    private String risk;
+    private int risk;
 
     @Column(length = 200, nullable = false)
     private String cause;
