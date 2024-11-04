@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 @Log4j2
 @RequiredArgsConstructor
-public class Controller2 {
+public class DefaultController {
+
+    @GetMapping("/")
+    public String redirectToHome(){
+        return "redirect:/medicalku/home";
+    }
 
     @GetMapping("/result")
     public void result() {
