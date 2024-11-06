@@ -1,14 +1,14 @@
 .header {
     width: 100%;
-    margin-bottom: 50px;
+    margin-bottom: 100px;
     margin-top: 10px;
     display: flex;
     justify-content: center;
 }
 .header>span {
     color: #ACD0FF;
-    font-size: 3.75rem;
-    transform: translate(-435px);
+    font-size: 4rem;
+    transform: translate(-400px);
 }
 .header>span:hover {
     cursor: pointer;

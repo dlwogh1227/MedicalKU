@@ -14,12 +14,17 @@ function btnEvents() {
     });
 
     $(document).on("click", ".retry", function(){
-        setResponseUi(false);
-        $(".fail, .retry").remove();
-        $(".progress-bar").css("width", "0%");
+        revertUploadUi();
     });
 }
 
+
+function revertUploadUi() {
+    $(".progress-bar").css("width", "0%");
+    $(".fail, .retry").remove();
+    $(".tip, .progress-container").toggle();
+    $(".pre-img-container").toggleClass("back-img");
+}
 
 function changeBtn(icon, text, Selector, newClass) {
     $(Selector + ">span").eq(0).text(icon);
@@ -35,6 +40,16 @@ function enableBtn(selector) {
     $(selector).css("opacity", "1");
 }
 
-export {changeBtn, disableBtn, enableBtn, btnEvents};
+function isNormalSkin() {
+    console.log("원래 순서2");
+    if($(".ns").val() == 1) {
+        $(".result-container").toggleClass("result-normalSkin-container");
+        $(".result-item").toggleClass("result-nomalSkin-item");
+    }
+
+}
+
+
+export {changeBtn, disableBtn, enableBtn, btnEvents ,isNormalSkin};
 
 
