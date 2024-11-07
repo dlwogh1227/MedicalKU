@@ -11,7 +11,6 @@ function createFormData() {
             let file = new File([blob], "croppedImage.png", {type: "image/png"});
             console.log(file);
             formData.append('upfile', file);
-
             ajaxDiagnosis(formData);
         });
     } else {
