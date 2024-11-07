@@ -122,7 +122,7 @@
     display: flex;  
     align-items: center; 
 }
-.desease-rate {
+.desease-rate1, .desease-rate2, .desease-rate3 {
     font-size: 1.5rem;
 }
 .percent {
