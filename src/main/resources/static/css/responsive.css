@@ -24,7 +24,9 @@
     .button {
         height: 52.8px;
     }	
-    .info-btn { /* 도움말 기호 */
+    .material-symbols-outlined.info-btn { /* 도움말 기호 */
+        margin-top: 4%;
+        margin-left: 4%;
         font-size: 1.5rem;
     }
     .info { /* 도움말 창 */
@@ -42,10 +44,68 @@
         background-size: 16.5px 16.5px;
     }
     /* 화면3 */
-    .disease {
-        min-height: 198px;
+    .result-container {
+        width: 330px;
+        flex-direction: column;
+        align-items: center;
     }
-    .treatment {
-        min-height: 198px;
+    .main-title {
+        width: 316.8px;
+    }
+    .result-item {
+        width: 100%;
+        height: 330px;
+        margin-bottom: 7%;
+    }
+    .result-item-content{
+        min-height: 261.25px;
+    }
+    /* 결과요약*/
+    .material-symbols-outlined.confidence-info {
+        margin-right: 2px;
+        padding-bottom: 4.8%;
+        font-size: 1.1rem;
+    }
+        /* 폰트 */
+    .desease-name {
+        /* (16*1.9*0.66) */
+        font-size: 20.06px;
+    }
+    .desease-rate{
+        /* (16*1.5*0.66) */
+        font-size: 15.84px;
+    }
+    .percent {
+        font-size: 15.84px;
+    }
+    .severity-content {
+        font-size: 11.1px;
+    }
+    .result-info li {
+        /* (16*0.66) */
+        font-size: 10.56px;
+    }
+    
+    /*차트 */
+    .chart-container{
+        width: 192.5px;
+        height: 192.5px;
+    }
+    .severity-comment {
+        font-size: 10.56px;
+    }
+    .material-symbols-outlined.severity-comment-icon {
+        font-size: 16px;
+    }
+
+    /* 추가질환 */
+    .diseaseN-img-container {
+        width: 206.25px;
+        height: 206.25px;
+    }
+        /* 결과 도움말 */
+    .material-symbols-outlined.result-info-btn  {
+        margin-top: 2%;
+        margin-left: 3%;
     }
 }

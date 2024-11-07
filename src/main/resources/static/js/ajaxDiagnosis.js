@@ -1,4 +1,5 @@
 import {cropped, croppedCanvas} from './crop.js'
+import { isNormalSkin } from './uiHandlers.js';
 
 function ajaxDiagnosis(formData) {
     let minimumTime = 1500;
@@ -11,13 +12,13 @@ function ajaxDiagnosis(formData) {
         type: "post",
         data: formData,
         processData: false, 
-        contentType: false, 
+        contentType: false,
+        timeout: 10000,  
         success: function(response) {
 
             let adjustmentTime = setResponseTime(startTime, minimumTime);
 
             setTimeout(function() {showResponse(response);}, adjustmentTime);
-
             /* csr */
             /*
             let str = "";
@@ -89,7 +90,7 @@ function setResponseUi (isLoading) {
     if(isLoading) {
         $(".load").show();
     }
-    $(".tip, .progress-container").toggle();
+    $(".progress-container").toggle();
     $(".pre-img-container").toggleClass("back-img");
 }
 
@@ -106,10 +107,75 @@ function setResponseTime(startTime, minimumTime) {
 }
 
 function showResponse(response) {
+    console.log(response);
+    $(".load").hide();
+    $(".tip").toggle();
+    $(".content").append(response);
+    $(".probability").text(roundStringValue(".probability"));
+    if($(".fail").length === 0) {
+        $(".content").toggleClass("result-container");
+        $(".pre-img-container").removeClass("item");
+        $(".pre-img-container").toggleClass("result-item");
+        $(".title-text").text("진단결과");
+        $(".title").css("margin-bottom", "5%");
+        appendElement(".pre-img-container", ".chart-container");
+        appendElement(".pre-img-container", ".result-desease-container");
+        appendElement(".pre-img-container", ".result-info");
+        appendElement(".pre-img-container", ".specialist");
+        $(".pre-img, .cropedImg").toggleClass("result-preview");
+        $(".pre-img-container").toggleClass("result-preview-container");
+        isNormalSkin();
+    }
+}  
+/* let observer;
+let isCallbackRunning = false;
+
+function showResponse(response) {
     $(".load").hide();
     $(".content").append(response);
     $(".probability").text(roundStringValue(".probability"));
-    /* console.log(Date.now()- t); */
+
+    observer = new MutationObserver(function(mutations) {
+        if(isCallbackRunning) {
+            return;
+        }
+        isCallbackRunning = true;
+        mutations.forEach(function(mutation) {
+            console.log("변화감지");
+
+            if($(".fail").length === 0) {
+                console.log("fail감지");
+                $(".content").toggleClass("result-container");
+                $(".pre-img-container").removeClass("item");
+                $(".pre-img-container").toggleClass("result-item");
+                $(".title-text").text("진단결과");
+                $(".title").css("margin-bottom", "5%");
+                appendElement(".pre-img-container", ".chart-container");
+                appendElement(".pre-img-container", ".result-desease-container");
+                appendElement(".pre-img-container", ".result-info");
+                appendElement(".pre-img-container", ".specialist");
+                $(".pre-img, .cropedImg").toggleClass("result-preview");
+                $(".pre-img-container").toggleClass("result-preview-container");
+                isNormalSkin();
+                observer.disconnect();  
+            }
+        });
+        isCallbackRunning = false;
+    });
+
+    observer.observe($(".content")[0], {
+        childList: true,
+        subtree: true
+    });
+} 
+ */
+/* function disconnectObserver() {
+    observer.disconnect(); 
+} */
+
+function appendElement(position, element) {
+    let newElement = $(element).detach();
+    $(position).append(newElement);
 }
 
 export {submitImg, setResponseUi};
