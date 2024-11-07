@@ -16,6 +16,8 @@ function FileInputChangeHandler() {
 /* 파일 변경(첨부)시 실행, 유효성검사 및 UI 변경 호출*/
 function uploadFileAction(inputElement) {
     if (!validateFile(inputElement)) {
+        inputElement.value = '';
+        restorePreviousFile(inputElement);
         return;
     }
     let file = inputElement.files[0];

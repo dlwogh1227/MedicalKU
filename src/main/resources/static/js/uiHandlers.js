@@ -154,7 +154,7 @@ function setErrorPage() {
 function showErrorPage(str,substr) {
 
     $('.content').empty();
-    $('.content').css("width", "1000px");
+    $('.content').css("width", "1200px");
     $('.content').append(setErrorPage());
     $(".error-text").text(str);
     $(".error-text-sub").text(substr);
