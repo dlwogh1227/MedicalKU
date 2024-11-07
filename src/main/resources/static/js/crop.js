@@ -1,7 +1,6 @@
-import {enableBtn, disableBtn, changeBtn} from './uiHandlers.js'
+import {enableBtn, disableBtn, changeBtn,  switchCroppedPreview, switchOriginalPreview} from './uiHandlers.js'
 
 let cropImg;
-let preImg;
 let croppedCanvas
 let cropped = false;
 
@@ -17,18 +16,15 @@ function clearCrop() {
     }
 }
 
-function clearCropPreview() {
-    /* alert("크롭미리보기비움"); */
-    $(".cropedImg").attr("src", "");
-    $(".cropedImg").hide();
+function clearCroppedCanvas() {
+    /* alert("크롭캔버스비움"); */
     croppedCanvas = null;
-    $(".pre-img").show();
 }
 
 function setCropInterface () {
     /* 크롭 불러오기 */
     $(document).on("click", ".crop", function() {
-        preImg = $(".pre-img")[0];
+        let preImg = $(".pre-img")[0];
         clearCrop();
         
         cropImg = new Cropper(preImg, {
@@ -36,37 +32,36 @@ function setCropInterface () {
             viewMode: 3,
             dragMode: 'move'
         });
-        changeBtn("content_cut", "잘라내기", ".crop", "btn-crop button");
+        changeBtn(".crop", "content_cut", "잘라내기", "cut button");
         disableBtn(".next");
         disableBtn(".reUpload");
     });
-    /* 크롭 */
-    $(document).on("click", ".btn-crop", function() {
+    /* 잘라내기 */
+    $(document).on("click", ".cut", function() {
         croppedCanvas = cropImg.getCroppedCanvas();
         /* console.log(`크롭된 이미지 크기: ${croppedCanvas.width} x ${croppedCanvas.height}`);
         croppedCanvas.toBlob(function(blob) {
             console.log(`크롭 사이즈: ${blob.size} bytes`);
         }); */
         /* console.log(croppedCanvas.toDataURL()); */
-        $(".cropedImg").attr("src", croppedCanvas.toDataURL()).show();
-        $(".pre-img").hide();
-        changeBtn("close", "되돌리기", ".btn-crop", "re-crop button");
+        switchCroppedPreview(croppedCanvas.toDataURL());
+        changeBtn(".cut", "close", "되돌리기", "re-crop button");
+        enableBtn(".next");
+        enableBtn(".reUpload");
 
         clearCrop();
 
-        enableBtn(".next");
-        enableBtn(".reUpload");
-        
         changeCroppedValue(true);
     });
     /* 크롭취소 */
     $(document).on("click", ".re-crop", function() {
-        changeBtn("crop", "크롭", ".re-crop", "crop button");
-        clearCropPreview();
+        changeBtn(".re-crop", "crop", "크롭", "crop button");
+        clearCroppedCanvas();
+        switchOriginalPreview();
 
         changeCroppedValue(false);
     }); 
 
 }
 
-export {cropped, croppedCanvas,changeCroppedValue, setCropInterface, clearCrop, clearCropPreview};
+

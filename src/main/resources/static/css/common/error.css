@@ -1,0 +1,40 @@
+.error-container {
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.error-container>span {
+    margin-bottom: 3%;
+}
+.error-text {
+    font-weight: 600;
+    font-size: 2.5rem;
+    color: #13204B;
+}
+.error-text-sub {
+    color: rgb(94, 94, 94);
+}
+.material-symbols-outlined.error-icon {
+    font-size: 15rem;
+    color: #ACD0FF;
+}
+.home-btn:hover {
+    cursor: pointer;
+}
+.home-btn {
+    margin-top: 3%;
+    color: #ACD0FF;
+    font-size: 1.3rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 23%;
+    padding: 0.7% 0;
+    border: 1px solid rgb(194, 194, 194);
+    border-radius: 20px;
+}
+.material-symbols-outlined.home-icon {
+    font-weight: 600;
+}
