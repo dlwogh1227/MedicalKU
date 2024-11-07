@@ -128,7 +128,9 @@ function showResponse(response) {
         $(".pre-img-container").toggleClass("result-item");
         $(".title-text").text("진단결과");              /* 타이틀 조정 */
         $(".title").css("margin-bottom", "5%");
-        $(".desease-rate").text(roundStringValue(".desease-rate"));   /* 반올림 */
+        $(".desease-rate1").text(roundStringValue(".desease-rate1"));
+        $(".desease-rate2").text(roundStringValue(".desease-rate2")); 
+        $(".desease-rate3").text(roundStringValue(".desease-rate3"));    /* 반올림 */
         appendElement(".pre-img-container", ".chart-container");    /* 요소 추가(재배치) */
         appendElement(".pre-img-container", ".result-desease-container");
         appendElement(".pre-img-container", ".result-info");
