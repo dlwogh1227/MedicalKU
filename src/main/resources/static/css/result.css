@@ -167,6 +167,9 @@
     margin-bottom: 1.5%;
     color: #5e5e5e;
 }
+.specialist:hover {
+    cursor: pointer;
+}
 .specialist {
     width: 95%;
     border-radius: 30px;
@@ -289,4 +292,7 @@
 }
 .material-symbols-outlined.severity-comment-icon {
     font-weight: 600;
+    font-size: 1.4rem;
 }
+/* 링크 */
+

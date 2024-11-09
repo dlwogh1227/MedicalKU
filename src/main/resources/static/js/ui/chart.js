@@ -49,6 +49,7 @@ am5.ready(function() {
     xAxis.get("renderer").labels.template.setAll({
         fontSize: 1
     });
+    /* 레이블 UI */
     // Add custom labels to axis ranges
     function addAxisLabel(value, labelText) {
         var axisRange = xAxis.createAxisRange(xAxis.makeDataItem({ value: value }));
@@ -59,33 +60,32 @@ am5.ready(function() {
             fontSize: getResponsiveFontSize(),
             fill: am5.color(0x000000),
             centerX: am5.p50,
-            centerY: am5.p50
+            centerY: am5.p50,
+            fontWeight: "bold"
         });
     }
-    
     // 각 구간에 맞는 문구 추가
     addAxisLabel(15, "낮음");
     addAxisLabel(50, "중간");
     addAxisLabel(85, "높음");
-    
+    /* 반응형 레이블 위치, 폰트사이즈*/
     function getResponsiveFontSize() {
         if (screenWidth < 768) return 10;  // 모바일 글꼴
         return 15;                         // 기본 글꼴
     }
-    
     function getResponsiveRadiusSize() {
         if (screenWidth < 768) return -20;  // 모바일 글꼴
         return -30;                         // 기본 글꼴
     }
     
-    // Add clock hand
     var axisDataItem = xAxis.makeDataItem({});
     axisDataItem.set("value", 0);
-    
+
+    /* 화살표 UI */
     var bullet = axisDataItem.set("bullet", am5xy.AxisBullet.new(root, {
         location: 1,
         sprite: am5radar.ClockHand.new(root, 
-            {radius: am5.percent(85),
+            {radius: am5.percent(80),
             bottomWidth: getResponsiveBottomWidthSize(),           
             topWidth: 1,
             pinRadius: getResponsivePinRadiusSize()})

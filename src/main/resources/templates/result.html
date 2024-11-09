@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
-    <!-- 화면3 -->
-     <!-- 정상피부 -->
+    <!-- 질환1 (정상피부) -->
     <th:block th:if="${diseaseName1.equals('정상피부')}" >
         <input type="hidden" value="1" class="ns">
         <input type="hidden" value="0" class="riskVal">
@@ -20,7 +19,7 @@
             </div>
             <div class="severity">
                 <span class="severity-rate">
-                    <span class="material-symbols-outlined severity-icon">sentiment_very_satisfied</span>
+                    <span class="material-symbols-outlined severity-icon" style="color: #80d1a1;">sentiment_very_satisfied</span>
                     GOOD
                 </span>
                 <span class="severity-content">: 피부가 건강한 상태입니다. 충분한 수분 섭취와 자외선 차단제를 통해 건강 관리를 지속해주세요 </span>  
@@ -38,9 +37,8 @@
         </div>
         <div class="specialist"><img th:src="@{/img/img_hi01_1_-removebg-preview.png}" class="kuLogo"><span>피부과 전문의 확인</span><span class="material-symbols-outlined">trending_flat</span></div>
     </th:block>
-    <!-- 메인 질환 -->
+    <!-- 질환1 -->
     <th:block th:unless="${diseaseName1.equals('정상피부')}">
-        <!-- js사용 -->
         <input type="hidden" th:value="${risk1}" class="riskVal">
         <div class="chart-container">
             <div id="chartdiv"></div>
@@ -91,7 +89,7 @@
         <div class="specialist">
             <img th:src="@{/img/img_hi01_1_-removebg-preview.png}" class="kuLogo"><span>피부과 전문의 확인</span><span class="material-symbols-outlined">trending_flat</span>
         </div>
-        <!-- 이어 붙이기 -->
+        <!-- 추가내용 -->
         <div class="result-item disease-img-container">
             <div class="disease-img-text" th:text="${diseaseName1}"></div>
             <img class="disease-img" th:src="${imagePath1}" alt="">
@@ -141,7 +139,7 @@
             </div>
         </div>
     </th:block>
-    <!-- 추가 질환 -->
+    <!-- 질환2 -->
     <th:block th:if="${diseaseName2}"> 
         <div class="diseaseN-title">
             <!-- <span class="material-symbols-outlined diseaseN-title-icon">add_circle</span> -->
@@ -149,7 +147,7 @@
                 <span class="title">잠재적 질환</span>
                 <span class="material-symbols-outlined info-btn result-info-btn">info</span>
                 <div class="info" style="display: none;">
-                    <div class="info-content">가능성이 있는 잠재적 질환 이기 때문에 지속적인 관찰이 필요합니다. 증상의 양상이 변하거나 악화된다면 재진을 권고합니다</div>
+                    <div class="info-content">가능성이 있는 잠재적 질환이기 때문에 지속적인 관찰이 필요합니다. 증상의 양상이 변하거나 악화된다면 재진을 권고합니다</div>
                     <span class="material-symbols-outlined close-btn">cancel</span>
                 </div>
              </div>
@@ -173,7 +171,7 @@
                         <span class="severity-rate" style="color: #80d1a1;">
                             <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span> 
                             Low-risk
-                        </span>
+                            </span>
                         <span class="severity-content">: 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>  
                     </th:block>  
                     <th:block th:if="${risk2 == 2}">
@@ -201,6 +199,7 @@
             </div> -->
         </div>
     </th:block>
+    <!-- 질환3 -->
     <th:block th:if="${diseaseName3}">
         <div class="result-item diseaseN-container">
             <span class="material-symbols-outlined add-icon">shadow_add</span>
@@ -247,6 +246,6 @@
             <span class="no-diseaseN">추가 의심 질환 없음</span>
         </div>
     </th:block>
-    <script src="/js/chart.js"></script>
+    <script src="/js/ui/chart.js"></script>
 </body>
 </html>

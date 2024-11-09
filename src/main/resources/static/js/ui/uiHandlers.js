@@ -1,7 +1,8 @@
-import { setCrop } from './imageHandler.js';
-import { createFormData } from './ajaxDiagnosis.js'
+import { roundStringValue, appendElement } from "../utils/utils.js";
+/* uiHandlers.js */
 
-/* 기타 버튼 */
+/* @버튼 */
+/* 버튼 이벤트 */
 function btnEvents() {
     $(".back-home>span, header>span").on("click", function() {
         window.location.href = '/medicalku/home'; 
@@ -18,25 +19,18 @@ function btnEvents() {
     $(document).on("click", ".retry", function(){
         restoreUploadUi();
     });
+    $(document).on("click", ".specialist", function(){
+        window.open('https://www.kuh.ac.kr/medical/dept/deptIntro.do?dept_cd=000290', '_blank');
+    });
+    $(document).on("click", ".home-btn", function(){
+        window.location.href = '/medicalku/home'; 
+    });
 }
-
-/* 이미지 처리 UI */
-function changePage() {
-    $(".help, .upload-file").hide();
-    $(".back-home, .pre-img-container, .progress-container").show();
-    $(".tip").text("tip: 정확한 진단을 위해 첨부한 사진을 잘라보세요!");
-    setCrop(".pre-img");
-    changePage = function() {
-    };
-}
-function setPreview(imgUrl) {
-    $(".pre-img").attr("src", imgUrl);
-}
-/* 버튼 변경 */
-function changeBtn(Selector, icon, text, newClass) {
-    $(Selector + ">span").eq(0).text(icon);
-    $(Selector + ">span").eq(1).text(text);
-    $(Selector).attr("class", newClass);
+/* 버튼 속성 변경 */
+function changeBtn(selector, icon, text, newClass) {
+    $(selector + ">span").eq(0).text(icon);
+    $(selector + ">span").eq(1).text(text);
+    $(selector).attr("class", newClass);
 }
 function disableBtn(selector) {
     $(selector).css("pointer-events", "none");
@@ -46,7 +40,38 @@ function enableBtn(selector) {
     $(selector).css("pointer-events", "all");
     $(selector).css("opacity", "1");
 }
-/* 원본미리보기-크롭이미지미리보기 전환 */
+function UpdateBtn(changeBtnParam, enableBtnParam, disableBtnParam) {
+    if(changeBtnParam && Object.keys(changeBtnParam).length == 4) {
+        let {selector, icon, text, newClass} = changeBtnParam;
+        changeBtn(selector, icon, text, newClass);
+    }
+    if(enableBtnParam) {
+        enableBtn(enableBtnParam);
+    }
+    if(disableBtnParam) {
+        disableBtn(disableBtnParam);
+    }
+}
+
+
+/* @이미지 처리 UI */
+/* 이미지 처리화면 UI */
+function changePage() {
+    $(".help, .upload-file").hide();
+    $(".back-home, .pre-img-container, .progress-container").show();
+    $(".tip").text("tip: 정확한 진단을 위해 첨부한 사진을 잘라보세요!");
+    changePage = function() {
+    };
+}
+/* 프리뷰 UI */
+function showPreview(imgUrl) {
+    $(".pre-img").attr("src", imgUrl);
+}
+/* 프리뷰 실패 화면 */
+function showReadError() {
+    alert("파일데이터 읽기 실패");
+}
+/* 원본프리뷰UI-크롭프리뷰UI 전환 */
 function switchCroppedPreview(imgUrl) {
     $(".cropedImg").attr("src", imgUrl).show();
     $(".pre-img").hide();
@@ -56,19 +81,21 @@ function switchOriginalPreview() {
     $(".cropedImg").hide();
     $(".pre-img").show();
 }
-
-
-
-/* 3페 */
-/* 제출버튼 */
-function submitBtn() {
-    $(".next").on("click", function(){
-        createFormData();
-    });
+/* 결과화면 -> 이미지 처리화면 전환 */
+function restoreUploadUi() {
+    $(".progress-bar").css("width", "0%");
+    $(".fail, .retry").remove();
+    $(".tip, .progress-container").toggle();
+    $(".pre-img-container").toggleClass("back-img"); /* 클래스 추가 */
 }
+
+
+/* @ 결과화면 */
+
 /* 로딩화면 UI */
-function setResponseUi() {
+function setResponseUi(minimumTime) {
     $(".load").show();
+    animateLoading(minimumTime);
     $(".progress-container").toggle();
     $(".pre-img-container").toggleClass("back-img"); /* 클래스 지움 */
 }
@@ -86,42 +113,13 @@ function animateLoading(minimumTime) {
             console.log('애니메이션 시간: ' + animationDuration + ' ms');} */
     }); 
 }
-/* 업로드 화면 복구(실패케이스) */
-function restoreUploadUi() {
-    $(".progress-bar").css("width", "0%");
-    $(".fail, .retry").remove();
-    $(".tip, .progress-container").toggle();
-    $(".pre-img-container").toggleClass("back-img"); /* 클래스 추가 */
-}
-/* 정상피부 UI */
-function isNormalSkin() {
-    if($(".ns").val() == 1) {
-        $(".result-container").toggleClass("result-normalSkin-container");
-        $(".result-item").toggleClass("result-nomalSkin-item");
-    }
-}
-/* 요소추가 */
-function appendElement(position, element) {
-    let newElement = $(element).detach();
-    $(position).append(newElement);
-}
-/* 반올림 */
-function roundStringValue(selector) {
-    let str = $(selector).text();
-    let roundVal = Math.round(parseFloat(str));
-    if (!isNaN(roundVal)) {
-        return roundVal;
-    } else {
-        console.log("부적절한 확률값");
-        return ""; 
-    }
-}
-/* 결과화면 */
+/* 결과 화면 UI */
 function showResponse(response) {
     /* console.log(response) */
     $(".load").hide();
     $(".tip").toggle();
     $(".content").append(response);
+    $(".scan-effect ").toggle();
     if($(".fail").length == 0) {
         $(".content").toggleClass("result-container");  /* 레이아웃 조정 */
         $(".pre-img-container").removeClass("item");
@@ -140,8 +138,17 @@ function showResponse(response) {
         isNormalSkin();                                 /* 정상피부 검사 */
     }
 }
+/* 정상피부 일떄 UI 결정 */
+function isNormalSkin() { 
+    if($(".ns").val() == 1) {
+        $(".result-container").toggleClass("result-normalSkin-container");
+        $(".result-item").toggleClass("result-nomalSkin-item");
+    }
+}
 
-/* 에러화면 */
+
+
+/* @에러화면 */
 function setErrorPage() {
     let htmlstr;
     htmlstr = "<div class='item error-container'>";
@@ -162,8 +169,8 @@ function showErrorPage(str,substr) {
     $(".error-text-sub").text(substr);
 }
 
-export {changeBtn, disableBtn, enableBtn, btnEvents};
-export {changePage, setPreview, switchCroppedPreview, switchOriginalPreview}; /* 2페 */
-export {submitBtn, animateLoading, setResponseUi, showResponse}; /* 3페 */
+export {btnEvents, changePage, showPreview, showReadError, UpdateBtn, animateLoading, setResponseUi}; /* 메인 */
+export {switchCroppedPreview, switchOriginalPreview}; /* 2페 */
+export {showResponse}; /* 3페 */
 export {showErrorPage};
 
