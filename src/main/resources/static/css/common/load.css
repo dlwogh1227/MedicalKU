@@ -10,10 +10,18 @@
 .progress-name {
     width: 100%;
     text-align: center;
-    margin-top: 2%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.7%;
+
 }
 .progress-name span {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #13204B;
 }
+/* .material-symbols-outlined.load-diagnosis-icon {
+
+} */

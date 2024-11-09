@@ -1,4 +1,6 @@
-import { showErrorPage } from './uiHandlers.js';
+/* validationErrorHandler.js */
+
+import { showErrorPage } from '../ui/uiHandlers.js';
 
 /* 파일검사 */
 function validateFile(input) {
@@ -98,4 +100,4 @@ window.addEventListener('offline', function() {
     console.log("네트워크 연결이 끊어졌습니다.");
 });
 
-export {validateFile, ajaxErrorHandler};
+export {validateFile, ajaxErrorHandler, checkNetworkStatus};
