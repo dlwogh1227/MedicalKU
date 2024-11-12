@@ -30,7 +30,7 @@ function validateFile(input) {
 }
 
 /* 통신 에러 */
-function ajaxErrorHandler(xhr, textStatus, errorThrown) {
+function responseErrorHandler(xhr, textStatus, errorThrown) {
     let str;
     let substr;
     switch (xhr.status) {
@@ -66,13 +66,13 @@ function ajaxErrorHandler(xhr, textStatus, errorThrown) {
             break;
         case 504:
             console.error("500 Internal Server Error: 서버 내부 오류가 발생했습니다.");
-            str = "500 Internal Server Error: 서버 내부 오류가 발생했습니다.";
+            str = "504 Gateway Timeout: 서버 응답 지연.";
             substr = "서버가 다른 네트워크 서비스로부터 응답을 받는데 지연되고 있습니다. 나중에 다시 시도해 주세요.";
             break;
         default:
             if(errorThrown == "timeout") {
                 console.error("Timeout: 서버 응답 시간이 초과되었습니다.");
-                str = "504 Gateway Timeout: 서버 응답 지연.";
+                str = "Timeout: 서버 응답 시간이 초과되었습니다."
                 substr = "응답 시간이 지연되고 있습니다. 네트워크 상태를 확인하거나, 나중에 다시 시도해 주세요.";
             } else {
                 console.error("Unexpected error: " + xhr.status + " " + errorThrown);
@@ -100,4 +100,4 @@ window.addEventListener('offline', function() {
     console.log("네트워크 연결이 끊어졌습니다.");
 });
 
-export {validateFile, ajaxErrorHandler, checkNetworkStatus};
+export {validateFile, responseErrorHandler, checkNetworkStatus};

@@ -7,7 +7,10 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-family: "Inter", sans-serif !important;
+        /* font-family: 'Inter', sans-serif !important; */
+        /* font-family: 'NanumSquare', sans-serif !important; */
+        font-family: 'NanumGothic', sans-serif !important;
+
     }
     .content {
         /* border: 1px solid red; */
