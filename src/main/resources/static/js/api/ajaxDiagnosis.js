@@ -53,8 +53,8 @@ function ajaxDiagnosis(formData, onSuccess, onError) {
     let startTime = Date.now();
     
     $.ajax({
-        /* url: "/medicalku/diagnosis", */
-        url: "/medicalku/diagnosi", 
+        url: "/medicalku/diagnosis",
+        /* url: "/medicalku/diagnosi",  */
         type: "post",
         data: formData,
         processData: false, 
