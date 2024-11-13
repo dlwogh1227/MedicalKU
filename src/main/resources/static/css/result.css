@@ -281,6 +281,7 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    position: relative;
 }
 .severity-comment {
     position: absolute;
@@ -291,7 +292,22 @@
 }
 .material-symbols-outlined.severity-comment-icon {
     font-weight: 600;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+}
+.label1 {
+    position: absolute;
+    bottom: 24%;
+    left: 10.7%;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.label3 {
+    position: absolute;
+    bottom: 24%;
+    right: 10.7%;
+    font-weight: 600;
+    font-size: 0.9rem;
 }
 /* 링크 */
 

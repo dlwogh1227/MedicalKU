@@ -12,11 +12,25 @@
             width: 250px;
             height: 250px;
             margin: 0 auto;
+            position: relative;
+        }
+        .label1 {
+            position: absolute;
+            bottom: 30px;
+            left: 20px;
+        }
+        .label3 {
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
         }
     </style>
 </head>
 <body>
-    <div id="chartdiv"></div>
+    <div id="chartdiv">
+        <div class="label1">Low</div>
+        <div class="label3">High</div>
+    </div>
     <script>
     am5.ready(function() {
         // 루트 요소 생성
@@ -65,6 +79,7 @@
         xAxis.get("renderer").labels.template.setAll({
             fontSize: 1
         });
+        
 
 // 각 위험 수준에 대한 레이블 추가
 function addAxisLabel(value, labelText, radiusOffset) {
@@ -75,15 +90,16 @@ function addAxisLabel(value, labelText, radiusOffset) {
         radius: radiusOffset,  // 레이블 위치를 조정하는 값
         fontSize: 15,
         fill: am5.color(0x000000),
+        
         centerX: am5.p50,
         centerY: am5.p50
     });
 }
 
 // "낮음", "중간", "높음" 레이블 추가
-addAxisLabel(0, "Low", -20);         // "Low" 레이블을 왼쪽 끝으로 이동
+
 addAxisLabel(50, "Moderate", -30);   // "Moderate" 레이블을 중앙에 위치
-addAxisLabel(100, "High", -20);      // "High" 레이블을 오른쪽 끝으로 이동
+
 
 
         // 포인터 추가

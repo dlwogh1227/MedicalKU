@@ -41,8 +41,12 @@
     <th:block th:unless="${diseaseName1.equals('정상피부')}">
         <input type="hidden" th:value="${risk1}" class="riskVal">
         <div class="chart-container">
+            <!-- <img th:src="@{/img/Frame 194_t.png}" alt=""> -->
             <div id="chartdiv"></div>
+            <div class="label1">Low</div>
+            <div class="label3">High</div>
             <div class="severity-comment"><span class="material-symbols-outlined severity-comment-icon">search</span>위험수준</div>
+            <!-- <div class="temp">위험도</div>  -->
         </div>
         <div class="result-desease-container">
             <div class="result-desease">
