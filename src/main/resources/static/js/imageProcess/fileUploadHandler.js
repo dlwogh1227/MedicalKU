@@ -1,4 +1,4 @@
-import { createBtnParams } from '../utils/utils.js';
+import { createObject } from '../utils/utils.js';
 import { validateFile } from '../utils/validationErrorHandler.js';
 import { switchOriginalPreview, UpdateBtn } from '../ui/uiHandlers.js';
 import { clearCrop, clearCroppedCanvas, changeCroppedValue } from '../imageProcess/cropHandler.js';
@@ -14,7 +14,7 @@ function setImgUploadBtn() {
     $(".reUpload").on("click", function() {
         $(".inputFile").click();
 
-        UpdateBtn(createBtnParams("#crop", "crop", "크롭",  "crop button"), "", "");
+        UpdateBtn(createObject("#crop", "crop", "크롭",  "crop button"), "", "");
         clearCrop();
         clearCroppedCanvas();
         switchOriginalPreview();

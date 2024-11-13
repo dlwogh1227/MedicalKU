@@ -9,7 +9,7 @@ function roundStringValue(selector) {
     }
 }
 
-function createBtnParams(selector, icon, text, newClass) {
+function createObject(selector, icon, text, newClass) {
     return { selector, icon, text, newClass };
 }
 
@@ -18,4 +18,4 @@ function appendElement(position, element) {
     $(position).append(newElement);
 }
 
-export {createBtnParams, roundStringValue, appendElement};
+export {createObject, roundStringValue, appendElement};
