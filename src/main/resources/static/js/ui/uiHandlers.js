@@ -8,13 +8,25 @@ function btnEvents() {
         window.location.href = '/medicalku/home'; 
     });
 
-    $(".info-btn").on("click", function() {
-        $(".info").toggle();
+    $(document).on("click", ".overview", function(){
+        $(".info-overview").toggle();
     });
 
-    $(".close-btn").on("click", function() {
+    $(document).on("click", ".result-info-btn", function(){
+        $(".info-diseaseN").toggle();
+    });
+
+    $(document).on("click", ".close-btn", function(){
         $(".info").hide();
     });
+
+    $(document).on("click", ".confidence-info", function(){
+        $(".confidence").toggle();
+    });
+    $(document).on("click", ".confidence-close-btn", function(){
+        $(".confidence").hide();
+    });
+
 
     $(document).on("click", ".retry", function(){
         restoreUploadUi();

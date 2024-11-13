@@ -104,6 +104,7 @@
     z-index: 2;
 }
 .result-desease {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -120,12 +121,16 @@
 .desease-rate-container {
     display: flex;  
     align-items: center; 
+    position: relative;
 }
 .desease-rate1, .desease-rate2, .desease-rate3 {
     font-size: 1.5rem;
 }
 .percent {
     font-size: 1.5rem;
+}
+.confidence-info {
+    cursor: pointer;
 }
 .material-symbols-outlined.confidence-info {
     font-size: 1rem;
@@ -310,4 +315,41 @@
     font-size: 0.9rem;
 }
 /* 링크 */
+/* 모달 */
+.info-diseaseN {
+    padding: 10% 13%;
+}
+.confidence {
+    width: 290px;
+    border-radius: 20px;
+    padding: 20%;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: translate(-100%, -86%);
+    background-color: rgb(255, 255, 255);
+    opacity: 90%;
+    box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2);
+}
 
+.confidence-title {
+    font-size: 1.2rem;
+    margin-bottom: 5%;
+    color: #13204B;
+    font-weight: 600;
+}
+
+.confidence-content{
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+.confidence-close-btn {
+    cursor: pointer;
+}
+.material-symbols-outlined.confidence-close-btn {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 4%;
+    top: 6%;
+    opacity: 90%;
+}

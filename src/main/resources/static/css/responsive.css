@@ -31,7 +31,6 @@
     }
     .info { /* 도움말 창 */
         width: 191.4px;
-        top: 11.2px;
     }
     .info-title {
         font-size: 12.67px;
@@ -107,5 +106,9 @@
     .material-symbols-outlined.result-info-btn  {
         margin-top: 4%;
         margin-left: 3%;
+    }
+    /* 신뢰도 모달 */
+    .confidence {
+        width: 191.4px;
     }
 }
