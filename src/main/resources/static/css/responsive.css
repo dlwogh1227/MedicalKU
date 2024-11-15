@@ -11,32 +11,26 @@
 }
 
 /* 모바일 세로 가로, 태블릿 세로 */
-@media (max-width: 768px) {
+@media (max-width: 1060px) {
     /* base */
     html {
         /* font-size: 10.56px; */
-        font-size: 12px;
+        /* font-size: 12px; */
+        font-size: 11.6px; /* +10% */
     }
     .content {
         /* border: 1px solid red; */
         width: 330px;
     }
     .button {
-        height: 52.8px;
-    }	
+        height: 48px;
+    }
     .material-symbols-outlined.info-btn { /* 도움말 기호 */
         margin-top: 6%;
         margin-left: 4%;
-        font-size: 1.5rem;
     }
     .info { /* 도움말 창 */
-        width: 191.4px;
-    }
-    .info-title {
-        font-size: 12.67px;
-    }
-    .info-content {
-        font-size: 10.56px;
+        width: 210px;
     }
     /* 화면2 */
     .back-img  {
@@ -48,6 +42,9 @@
         flex-direction: column;
         align-items: center;
     }
+    .result-desease-container {
+        margin-bottom: 2%;
+    }
     .main-title {
         width: 316.8px;
     }
@@ -57,46 +54,13 @@
         margin-bottom: 7%;
     }
     .result-item-content{
-        min-height: 261.25px;
+        height: 270px;
     }
-    /* 결과요약*/
-    .material-symbols-outlined.confidence-info {
-        margin-right: 2px;
-        padding-bottom: 4.8%;
-        font-size: 1.1rem;
-    }
-        /* 폰트 */
-    .desease-name {
-        /* (16*1.9*0.66) */
-        font-size: 20.06px;
-    }
-    .desease-rate{
-        /* (16*1.5*0.66) */
-        font-size: 15.84px;
-    }
-    .percent {
-        font-size: 15.84px;
-    }
-    .severity-content {
-        font-size: 11.1px;
-    }
-    .result-info li {
-        /* (16*0.66) */
-        font-size: 10.56px;
-    }
-    
     /*차트 */
     .chart-container{
         width: 192.5px;
         height: 192.5px;
     }
-    .severity-comment {
-        font-size: 10.56px;
-    }
-    .material-symbols-outlined.severity-comment-icon {
-        font-size: 16px;
-    }
-
     /* 추가질환 */
     .diseaseN-img-container {
         width: 206.25px;
@@ -111,4 +75,28 @@
     .confidence {
         width: 191.4px;
     }
+    .info-diseaseN {
+        width: 200px;
+    }
+}
+/* 텍스트 */
+@media (max-width: 768px) {
+    /* 화면1 */
+
+    /* 화면2 */
+
+    /* 화면3 */
+    .desease-name {
+        font-size: 2rem;
+    }
+    .desease-rate1, .desease-rate2, .desease-rate3 {
+        font-size: 1.43rem;
+    }
+    .percent {
+        font-size: 1rem;
+    }
+    .severity-content {
+        font-size: 1rem;
+    }
+
 }

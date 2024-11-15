@@ -56,7 +56,7 @@ function ajaxDiagnosis(formData, onSuccess, onError) {
     
     $.ajax({
         url: "/medicalku/diagnosis",
-        /* url: "/medicalku/diagnosi",  */
+        /* url: "/medicalku/diagnosi", */
         type: "post",
         data: formData,
         processData: false, 

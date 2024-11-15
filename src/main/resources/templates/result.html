@@ -33,11 +33,9 @@
                 </div>
             </div>
             <div class="severity">
-                <span class="severity-rate " style="color: #80d1a1;">
-                    <span class="material-symbols-outlined severity-icon">sentiment_very_satisfied</span>
-                    GOOD
-                </span>
-                <span class="severity-content">: 피부가 건강한 상태입니다. 충분한 수분 섭취와 자외선 차단제를 통해 건강 관리를 지속해주세요 </span>
+                <span class="severity-rate" style="background-color: #82d9a6;">
+                    <span class="material-symbols-outlined severity-icon">sentiment_very_satisfied</span>GOOD</span>
+                <span class="severity-content"> 피부가 건강한 상태입니다. 충분한 수분 섭취와 자외선 차단제를 통해 건강 관리를 지속해주세요 </span>
             </div>
         </div>
         <div class="result-info">
@@ -87,25 +85,19 @@
             </div>
             <div class="severity">
                 <th:block th:if="${risk1 == 1}">
-                    <span class="severity-rate" style="color: #80d1a1;">
-                        <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span> <!-- 초 -->
-                        Low-risk
-                    </span>
-                    <span class="severity-content">: 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>
+                    <span class="severity-rate" style="background-color: #82d9a6;">
+                        <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>Low-risk</span> <!-- 초 -->
+                    <span class="severity-content"> 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>
                 </th:block>
                 <th:block th:if="${risk1 == 2}">
-                    <span class="severity-rate" style="color: #ebdd5b;">
-                        <span class="material-symbols-outlined severity-icon">error</span> <!-- 노 -->
-                        Moderate-risk
-                    </span>
-                    <span class="severity-content">: 전문적인 의료 서비스를 받지 않는다면 증상이 악화 될 수 있습니다. 전문의와 상담을 권고합니다</span>
+                    <span class="severity-rate" style="background-color: #ffe26e;">
+                        <span class="material-symbols-outlined severity-icon">error</span>Moderate-risk</span> <!-- 노 -->
+                    <span class="severity-content"> 전문적인 의료 서비스를 받지 않는다면 증상이 악화 될 수 있습니다. 전문의와 상담을 권고합니다</span>
                 </th:block>
                 <th:block th:if="${risk1 == 3}">
-                    <span class="severity-rate" style="color: #da4343;">
-                        <span class="material-symbols-outlined severity-icon">warning</span> <!-- 빨 -->
-                        High-risk
-                    </span>
-                    <span class="severity-content">: 질환 위험도가 높으며 적극적인 치료가 필요합니다. 반드시 전문의와의 상담을 하세요.</span>
+                    <span class="severity-rate" style="background-color: #e76f6f;">
+                        <span class="material-symbols-outlined severity-icon">warning</span>High-risk</span> <!-- 빨 -->
+                    <span class="severity-content"> 질환 위험도가 높으며 적극적인 치료가 필요합니다. 반드시 전문의와의 상담을 하세요.</span>
                 </th:block>
             </div>
         </div>
@@ -164,7 +156,7 @@
         <div class="result-item result-item-content treatment">
             <div class="disease-content-header">
                 <div class="disease-content-name">치료법</div>
-                <div class="disease-content-icon"><span class="material-symbols-outlined">health_and_safety</span></div>
+                <div class="disease-content-icon"><span class="material-symbols-outlined">pill</span></div>
             </div>
             <div class="disease-content">
                 <ul>
@@ -175,21 +167,20 @@
         </div>
     </th:block>
     <!-- 질환2 -->
-    <th:block th:if="${diseaseName2}">
-        <div class="diseaseN-title">
-            <!-- <span class="material-symbols-outlined diseaseN-title-icon">add_circle</span> -->
-            <div class="title-container">
-                <span class="title">잠재적 질환</span>
-                <span class="material-symbols-outlined info-btn result-info-btn">info</span>
-                <div class="info info-diseaseN" style="display: none;">
-                    <div class="info-content"> 낮은 가능성이 존재하기 때문에 지속적인 관찰이 필요합니다. 증상이 변하거나 악화된다면 재진을 권고합니다</div>
-                    <span class="material-symbols-outlined close-btn info-diseaseN-icon">cancel</span>
-                </div>
+    <div class="diseaseN-title">
+        <!-- <span class="material-symbols-outlined diseaseN-title-icon">add_circle</span> -->
+        <div class="title-container">
+            <span class="title">잠재적 질환</span>
+            <span class="material-symbols-outlined info-btn result-info-btn">info</span>
+            <div class="info info-diseaseN" style="display: none;">
+                <div class="info-content"> 낮은 가능성이 존재하기 때문에 지속적인 관찰이 필요합니다. 증상이 변하거나 악화된다면 재진을 권고합니다</div>
+                <span class="material-symbols-outlined close-btn info-diseaseN-icon">cancel</span>
             </div>
         </div>
-
+    </div>
+    <th:block th:if="${!#strings.isEmpty(diseaseName2)}">
         <div class="result-item diseaseN-container">
-            <span class="material-symbols-outlined add-icon">shadow_add</span>
+            <span class="material-symbols-outlined add-icon">search_check_2</span>
             <div class="diseaseN-img-container">
                 <img class="diseaseN-img" th:src="${imagePath2}" alt="">
             </div>
@@ -202,24 +193,18 @@
                 </div>
                 <div class="severity">
                     <th:block th:if="${risk2 == 1}">
-                        <span class="severity-rate" style="color: #80d1a1;">
-                            <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>
-                            Low-risk
-                        </span>
+                        <span class="severity-rate" style="background-color: #82d9a6;">
+                            <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>Low-risk</span>
                         <span class="severity-content">: 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>
                     </th:block>
                     <th:block th:if="${risk2 == 2}">
-                        <span class="severity-rate" style="color: #ebdd5b;">
-                            <span class="material-symbols-outlined severity-icon">error</span>
-                            Moderate-risk
-                        </span>
+                        <span class="severity-rate" style="background-color: #ebdd5b;">
+                            <span class="material-symbols-outlined severity-icon">error</span>Moderate-risk</span>
                         <span class="severity-content">: 전문적인 의료 서비스를 받지 않는다면 증상이 악화 될 수 있습니다. 전문의와 상담을 권고합니다.</span>
                     </th:block>
                     <th:block th:if="${risk2 == 3}">
-                        <span class="severity-rate" style="color: #da4343;">
-                            <span class="material-symbols-outlined severity-icon">warning</span>
-                            High-risk
-                        </span>
+                        <span class="severity-rate" style="background-color: #e76f6f;">
+                            <span class="material-symbols-outlined severity-icon">warning</span>High-risk</span>
                         <span class="severity-content">: 질환 위험도가 높으며 적극적인 치료가 필요합니다. 반드시 전문의와 상담을 하세요.</span>
                     </th:block>
                 </div>
@@ -227,9 +212,9 @@
         </div>
     </th:block>
     <!-- 질환3 -->
-    <th:block th:if="${diseaseName3}">
+    <th:block th:if="${!#strings.isEmpty(diseaseName3)}">
         <div class="result-item diseaseN-container">
-            <span class="material-symbols-outlined add-icon">shadow_add</span>
+            <span class="material-symbols-outlined add-icon">search_check_2</span>
             <div class="diseaseN-img-container">
                 <img class="diseaseN-img" th:src="${imagePath3}" alt="">
             </div>
@@ -241,34 +226,28 @@
                     </div>
                 </div>
                 <div class="severity">
-                    <th:block th:if="${risk2 == 1}">
-                        <span class="severity-rate" style="color: #80d1a1;">
-                            <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>
-                            Low-risk
-                        </span>
+                    <th:block th:if="${risk3 == 1}">
+                        <span class="severity-rate" style="background-color: #82d9a6;">
+                            <span class="material-symbols-outlined severity-icon">sentiment_satisfied</span>Low-risk</span>
                         <span class="severity-content">: 위험도가 경미하여 자가 관리를 통해 증상 개선이 가능합니다. 필요시 전문의와 상담을 고려해보세요.</span>
                     </th:block>
-                    <th:block th:if="${risk2 == 2}">
-                        <span class="severity-rate" style="color: #ebdd5b;">
-                            <span class="material-symbols-outlined severity-icon">error</span>
-                            Moderate-risk
-                        </span>
+                    <th:block th:if="${risk3 == 2}">
+                        <span class="severity-rate" style="background-color: #ebdd5b;">
+                            <span class="material-symbols-outlined severity-icon">error</span>Moderate-risk</span>
                         <span class="severity-content">: 전문적인 의료 서비스를 받지 않는다면 상태가 악화 될 수 있습니다. 전문의와 상담을 권고합니다.</span>
                     </th:block>
-                    <th:block th:if="${risk2 == 3}">
-                        <span class="severity-rate" style="color: #da4343;">
-                            <span class="material-symbols-outlined severity-icon">warning</span>
-                            High-risk
-                        </span>
+                    <th:block th:if="${risk3 == 3}">
+                        <span class="severity-rate" style="background-color: #e76f6f;">
+                            <span class="material-symbols-outlined severity-icon">warning</span>High-risk</span>
                         <span class="severity-content">: 질환 위험도가 높으며 적극적인 치료가 필요합니다. 반드시 전문의와의 상담을 하세요.</span>
                     </th:block>
                 </div>
             </div>
         </div>
     </th:block>
-    <th:block th:unless="${diseaseName3}">
+    <th:block th:if="${#strings.isEmpty(diseaseName2) || #strings.isEmpty(diseaseName3)}">
         <div class="result-item no-diseaseN-container">
-            <span class="material-symbols-outlined add-icon">shadow_add</span>
+            <span class="material-symbols-outlined add-icon">search_check_2</span>
             <span class="no-diseaseN">추가 의심 질환 없음</span>
         </div>
     </th:block>

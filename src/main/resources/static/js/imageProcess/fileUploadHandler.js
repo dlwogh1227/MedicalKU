@@ -1,6 +1,6 @@
 import { createObject } from '../utils/utils.js';
 import { validateFile } from '../utils/validationErrorHandler.js';
-import { switchOriginalPreview, UpdateBtn } from '../ui/uiHandlers.js';
+import { switchOriginalPreview, updateBtn } from '../ui/uiHandlers.js';
 import { clearCrop, clearCroppedCanvas, changeCroppedValue } from '../imageProcess/cropHandler.js';
 
 /* 마지막으로 선택한 파일 */
@@ -14,7 +14,7 @@ function setImgUploadBtn() {
     $(".reUpload").on("click", function() {
         $(".inputFile").click();
 
-        UpdateBtn(createObject("#crop", "crop", "크롭",  "crop button"), "", "");
+        updateBtn.changeReUploadBtn();
         clearCrop();
         clearCroppedCanvas();
         switchOriginalPreview();
