@@ -4,7 +4,7 @@
     aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
-    border: 1px solid #C5C0C0;
+    border: 1px solid #d9d9d9;
     /* box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2); */
 }
 .back-img {
@@ -54,14 +54,10 @@
     flex-basis: 31%;
     gap: 3.5%;
 }
-.progress-container span:nth-child(2) {
-    font-size: 1.1rem;
-}
 
 .cropper-dashed {
     border: 0 !important; 
 }
-
 
 .scan-effect {
     position: absolute;

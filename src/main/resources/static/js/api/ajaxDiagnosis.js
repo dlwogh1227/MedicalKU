@@ -35,14 +35,16 @@ function createFormData() {
         /* alert("크롭이미지 존재"); */
         getCroppedCanvas().toBlob(function(blob) {
             let file = new File([blob], "croppedImage.png", {type: "image/png"});
-            console.log("크롭" + file);
+            console.log("크롭:");
+            console.log(file);
             formData.append('upfile', file);
             ajaxDiagnosis(formData, showResponse, responseErrorHandler);
         });
     } else {
         /* alert("크롭이미지 없음"); */
         let file = $('.inputFile')[0].files[0];
-        console.log("원본" + file);
+        console.log("원본:");
+        console.log(file);
         formData.append('upfile', file);
 
         ajaxDiagnosis(formData, showResponse, responseErrorHandler);
@@ -54,7 +56,7 @@ function ajaxDiagnosis(formData, onSuccess, onError) {
     
     $.ajax({
         url: "/medicalku/diagnosis",
-        /* url: "/medicalku/diagnosi",  */
+        /* url: "/medicalku/diagnosi", */
         type: "post",
         data: formData,
         processData: false, 

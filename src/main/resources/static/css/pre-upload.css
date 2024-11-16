@@ -34,8 +34,3 @@
 .carousel-indicators {
     filter: invert(27%) sepia(16%) saturate(592%) hue-rotate(174deg) brightness(92%) contrast(86%);
 }
-/*파일업로드*/
-.upload-file span:nth-child(2) {
-    font-size: 1.15rem;
-    font-weight: 600;
-}

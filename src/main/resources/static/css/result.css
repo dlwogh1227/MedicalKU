@@ -77,8 +77,8 @@
     top: 6%;
     left: 6%;
     color: aliceblue;
-    font-size: 1.2rem;
-    text-shadow: 1px 1px 3px rgb(112, 112, 112);
+    font-size: 1.4rem;
+    text-shadow: 1px 2px 3px rgb(75 75 75);
 }
 /* 첨부사진-결과 */
 .pre-img-container.result-preview-container {
@@ -89,8 +89,10 @@
     border:none;
     border-radius:0;
     position: relative;
+    margin-bottom: 4%;
 }
 
+/* @질환 결과 요약 */
 .result-desease-container, .result-desease-container-2{
     width: 100%;
     height: 30%;
@@ -98,12 +100,14 @@
     flex-direction: column;
     /* border: 1px solid #C5C0C0; */
     border-radius: 20px;
-    margin-bottom: 3.3%;
+    margin-bottom: 3%;
     background-color: #f2f6fc;
     padding: 2%;
     z-index: 2;
 }
+    /* 질환 이름-확률 */
 .result-desease {
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -114,25 +118,33 @@
 }
 .desease-name{
     color: #13204B;
-    font-size: 1.9rem;
+    font-size: 2.1rem;
     font-weight: 700;
 }
 .desease-rate-container {
     display: flex;  
-    align-items: center; 
+    align-items: baseline;
+    position: relative;
 }
 .desease-rate1, .desease-rate2, .desease-rate3 {
+    font-weight: 600;
     font-size: 1.5rem;
 }
 .percent {
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+.confidence-info {
+    cursor: pointer;
 }
 .material-symbols-outlined.confidence-info {
     font-size: 1rem;
     color: #737373;
-    margin-right: 3px; /* 반응 */
-    padding-bottom: 9%;
+    position: absolute;
+    top: 20%;
+    left: -40%;
 }
+    /* 위험도 */
 .severity {
     height: 50%;
     padding: 2%;
@@ -142,11 +154,17 @@
     flex-direction: row;
     align-items: center; */
     font-weight: 600;
+    color: white;
+    border-radius: 9px;
+    padding: 0.75% 1.7% 0.7% 1.3%;
+    margin-right: 0.3%;
 }
 .material-symbols-outlined.severity-icon {
-    vertical-align: text-top;
     font-size: 1.2rem;
-    margin-right: -0.5%;
+    padding-bottom: 0.5%;
+    padding-right: 0.3%;
+    vertical-align: middle;
+
 }
 .severity-content {
     color: #13204B;
@@ -155,7 +173,6 @@
 
 .result-info, .result-info-2{
     width: 100%;
-    /* margin-top: 10%; */
 }
 .result-info ul {
     padding-left: 5%;
@@ -232,7 +249,7 @@
     white-space: nowrap;
 }
 .material-symbols-outlined.result-info-btn {
-    margin-top: 4.3%;
+    margin-top: 5%;
     margin-left: 3%;
 }
     /* 질환N 이미지 */
@@ -310,4 +327,45 @@
     font-size: 0.9rem;
 }
 /* 링크 */
+/* 모달 */
+.info-diseaseN {
+    padding: 13% 10%;
+}
+.confidence {
+    width: 290px;
+    border-radius: 20px;
+    padding: 30%;
+    position: absolute;
+    left: -35%;
+    top: 0%;
+    transform: translate(-100%, -86%);
+    background-color: rgb(255, 255, 255);
+    opacity: 90%;
+    box-shadow: 0px 0px 7px rgba(26, 26, 26, 0.2);
+}
 
+.confidence-title {
+    font-size: 1.2rem;
+    margin-bottom: 5%;
+    color: #13204B;
+    font-weight: 600;
+}
+
+.confidence-content{
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+.confidence-close-btn {
+    cursor: pointer;
+}
+.material-symbols-outlined.confidence-close-btn {
+    font-size: 1.2rem;
+    position: absolute;
+    right: 4%;
+    top: 6%;
+    opacity: 90%;
+}
+
+.info-diseaseN {
+    right: -5%;
+}

@@ -8,13 +8,25 @@ function btnEvents() {
         window.location.href = '/medicalku/home'; 
     });
 
-    $(".info-btn").on("click", function() {
-        $(".info").toggle();
+    $(document).on("click", ".overview", function(){
+        $(".info-overview").toggle();
     });
 
-    $(".close-btn").on("click", function() {
+    $(document).on("click", ".result-info-btn", function(){
+        $(".info-diseaseN").toggle();
+    });
+
+    $(document).on("click", ".close-btn", function(){
         $(".info").hide();
     });
+
+    $(document).on("click", ".confidence-info", function(){
+        $(".confidence").toggle();
+    });
+    $(document).on("click", ".confidence-close-btn", function(){
+        $(".confidence").hide();
+    });
+
 
     $(document).on("click", ".retry", function(){
         restoreUploadUi();
@@ -40,16 +52,23 @@ function enableBtn(selector) {
     $(selector).css("pointer-events", "all");
     $(selector).css("opacity", "1");
 }
-function UpdateBtn(changeBtnParam, enableBtnParam, disableBtnParam) {
-    if(changeBtnParam && Object.keys(changeBtnParam).length == 4) {
-        let {selector, icon, text, newClass} = changeBtnParam;
-        changeBtn(selector, icon, text, newClass);
-    }
-    if(enableBtnParam) {
-        enableBtn(enableBtnParam);
-    }
-    if(disableBtnParam) {
-        disableBtn(disableBtnParam);
+
+const updateBtn = {
+    changeCropBtn: function () {
+        changeBtn(".crop", "content_cut", "잘라내기", "cut button");
+        disableBtn(".reUpload");
+        disableBtn(".next");
+    },
+    changeCutBtn: function () {
+        changeBtn(".cut", "close", "되돌리기", "re-crop button");
+        enableBtn(".reUpload");
+        enableBtn(".next");
+    },
+    changeRecropBtn: function () {
+        changeBtn(".re-crop", "crop", "크롭", "crop button");
+    },
+    changeReUploadBtn: function() {
+        changeBtn("#crop", "crop", "크롭",  "crop button");
     }
 }
 
@@ -146,8 +165,6 @@ function isNormalSkin() {
     }
 }
 
-
-
 /* @에러화면 */
 function setErrorPage() {
     let htmlstr;
@@ -161,15 +178,20 @@ function setErrorPage() {
     return htmlstr;
 }
 function showErrorPage(str,substr) {
+    let screenWidth = window.innerWidth;
 
     $('.content').empty();
-    $('.content').css("width", "1200px");
+    if(screenWidth > 1060) {
+        $('.content').css("width", "1200px");
+    } else {
+        $('.content').css("width", "350px");
+    }
     $('.content').append(setErrorPage());
     $(".error-text").text(str);
     $(".error-text-sub").text(substr);
 }
 
-export {btnEvents, changePage, showPreview, showReadError, UpdateBtn, animateLoading, setResponseUi}; /* 메인 */
+export {btnEvents, changePage, showPreview, showReadError, updateBtn, animateLoading, setResponseUi}; /* 메인 */
 export {switchCroppedPreview, switchOriginalPreview}; /* 2페 */
 export {showResponse}; /* 3페 */
 export {showErrorPage};

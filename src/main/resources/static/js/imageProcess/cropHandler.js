@@ -1,4 +1,4 @@
-import { UpdateBtn, switchCroppedPreview, switchOriginalPreview } from '../ui/uiHandlers.js';
+import { switchCroppedPreview, switchOriginalPreview } from '../ui/uiHandlers.js';
 
 /*@ 크롭 상태, 이벤트, 액션 관리 */
 
@@ -39,21 +39,20 @@ function clearCroppedCanvas() {
 }
 
 /* 크롭인터페이스 */
-function setCrop(selector, paramObj) {
-    setCropController(selector, paramObj.controller);
-    setCropAction(paramObj.action);
-    setCropCancel(paramObj.cancel);
+function setCrop(selector, updateBtn) {
+    setCropController(selector, updateBtn);
+    setCropAction(updateBtn);
+    setCropCancel(updateBtn);
 }
 /* 크롭세팅 */
-function setCropController(selector, paramObj) {
+function setCropController(selector, updateBtn) {
     $(document).on("click", ".crop", function() {
         setCropObj(selector)
-        let {changeBtnParam, enableBtnParam, disableBtnParam} = paramObj;
-        UpdateBtn(changeBtnParam, enableBtnParam, disableBtnParam);
+        updateBtn.changeCropBtn();
     });
 }
 /* 자르기 */
-function setCropAction(paramObj) {
+function setCropAction(updateBtn) {
     $(document).on("click", ".cut", function() {
         croppedCanvas = cropObj.getCroppedCanvas();
 
@@ -62,19 +61,18 @@ function setCropAction(paramObj) {
         }); 
 
         switchCroppedPreview(croppedCanvas.toDataURL());
-        let {changeBtnParam, enableBtnParam, disableBtnParam} = paramObj;
-        UpdateBtn(changeBtnParam, enableBtnParam, disableBtnParam);
+
+        updateBtn.changeCutBtn();
 
         clearCrop();
         changeCroppedValue(true);
     });
 }
 /* 자르기 취소 */
-function setCropCancel(paramObj) {
+function setCropCancel(updateBtn) {
     $(document).on("click", ".re-crop", function() {
-        let {changeBtnParam, enableBtnParam, disableBtnParam} = paramObj;
-        UpdateBtn(changeBtnParam, enableBtnParam, disableBtnParam);
-
+        updateBtn.changeRecropBtn();
+        
         clearCroppedCanvas();
         switchOriginalPreview();
 

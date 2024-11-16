@@ -26,10 +26,10 @@ am5.ready(function() {
         strokeGradient: am5.LinearGradient.new(root, {
             rotation: 0,
             stops: [
-                { color: am5.color("#D1D80F")},    // 연한 녹색 (파스텔) - 시작
+                { color: am5.color("#a5d80f")},    // 연한 녹색 (파스텔) - 시작
                 { color: am5.color("#FEE114")}, // 연한 노란색 (파스텔) - 녹색과 빨간색 사이의 부드러운 전환을 위한 중간 색상
-                { color: am5.color("#FFA500")}, // 연한 오렌지색 (파스텔) - 노란색에서 빨간색으로의 부드러운 전환
-                { color: am5.color("#FF5656")} 
+                { color: am5.color("#ffb734")}, // 연한 오렌지색 (파스텔) - 노란색에서 빨간색으로의 부드러운 전환
+                { color: am5.color("#ff4545")} 
             ]
         })
     });

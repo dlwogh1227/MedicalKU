@@ -8,7 +8,7 @@
 .header>span {
     color: #ACD0FF;
     font-size: 4rem;
-    transform: translate(-400px);
+    transform: translate(-410px);
 }
 .header>span:hover {
     cursor: pointer;
