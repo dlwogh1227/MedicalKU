@@ -29,10 +29,10 @@ public class Disease {
     @Column(length = 200, nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Diagnosis> diagnosis = new ArrayList<>();
 
-    @OneToMany(mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cure> cure = new ArrayList<>();
 
     @Column(length = 200, nullable = false)

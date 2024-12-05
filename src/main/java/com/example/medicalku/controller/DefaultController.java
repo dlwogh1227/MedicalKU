@@ -1,8 +1,10 @@
 package com.example.medicalku.controller;
 
+import com.example.medicalku.repository.DiseaseRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
@@ -10,8 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 @RequiredArgsConstructor
 public class DefaultController {
 
+    private final DiseaseRepository diseaseRepository;
+
     @GetMapping("/")
-    public String redirectToHome(){
+    public String redirectToHome() {
         return "redirect:/medicalku/home";
     }
 
@@ -23,5 +27,10 @@ public class DefaultController {
     @GetMapping("/fail")
     public void fail() {
 
+    }
+
+    @GetMapping("/diseaseList")
+    public void diseaseList(Model model) {
+        model.addAttribute("diseases", diseaseRepository.findAll());
     }
 }

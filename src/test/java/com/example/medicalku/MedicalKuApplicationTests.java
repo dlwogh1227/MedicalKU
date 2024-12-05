@@ -22,10 +22,10 @@ class MedicalKuApplicationTests {
 
     @Test
     void contextLoads() {
-        Optional<Disease> result = diseaseRepository.findByDiseaseName("아토피성 피부염");
+        Optional<Disease> result = diseaseRepository.findByDiseaseName("정상피부");
         if(result.isPresent()) {
             List<Cure> cures = result.get().getCure();
-            System.out.println("@@@@@@@@@"+cures.get(0).getText());
+            System.out.println("@@@@@@@@@"+cures.toString());
         }
     }
 
