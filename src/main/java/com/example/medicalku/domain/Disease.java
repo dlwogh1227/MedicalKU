@@ -21,7 +21,7 @@ public class Disease {
     private String diseaseName;
 
     @Column(length = 50, nullable = false)
-    private String risk;
+    private int risk;
 
     @Column(length = 200, nullable = false)
     private String cause;
@@ -29,10 +29,10 @@ public class Disease {
     @Column(length = 200, nullable = false)
     private String description;
 
-    @OneToMany(mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Diagnosis> diagnosis = new ArrayList<>();
 
-    @OneToMany(mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "disease", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Cure> cure = new ArrayList<>();
 
     @Column(length = 200, nullable = false)

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>질병 목록</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed; /* 열 너비를 고정 */
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    th, td {
+      width: 50%; /* 각 열의 너비를 동일하게 설정 */
+    }
+    img {
+      max-width: 100%; /* 이미지가 셀의 크기를 넘지 않도록 설정 */
+      max-height: 150px; /* 이미지의 최대 높이 */
+    }
+  </style>
+</head>
+<body>
+
+<h1>질병 목록</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>질병명</th>
+    <th>이미지이름</th>
+    <th>이미지</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- 질병 목록을 반복하며 출력 -->
+  <tr th:each="disease : ${diseases}">
+    <td th:text="${disease.diseaseName}"></td>
+    <td th:text="${disease.imagePath}"></td>
+    <td>
+      <!-- 이미지 경로를 이용하여 이미지 표시 -->
+      <img th:src="@{${disease.imagePath}}" alt="질병 이미지">
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
